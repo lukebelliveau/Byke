@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loads the map to user geolocation 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <MapView
+    region={
+      Object {
+        "latitude": 50,
+        "latitudeDelta": 0.0922,
+        "longitude": 50,
+        "longitudeDelta": 0.0421,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</View>
+`;
