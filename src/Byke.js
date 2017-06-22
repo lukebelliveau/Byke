@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import api from './api';
 import Map from './Map';
+import EnterDestination from './EnterDestination';
 
 const getLocation = (success, error = null, options = {}) =>
   navigator.geolocation.getCurrentPosition(success, error, options);
@@ -12,7 +13,7 @@ class Byke extends React.Component {
     super();
     this.state = {
       region: null,
-      stations: null,
+      stations: [],
     };
   }
 
@@ -38,17 +39,16 @@ class Byke extends React.Component {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        {this.state.region == null || this.state.stations == null
-          ? <View />
-          : <Map
-              style={styles.map}
-              region={this.state.region}
-              stations={this.state.stations}
-            />}
-      </View>
-    );
+    return this.state.region == null
+      ? <View />
+      : <View style={styles.container}>
+          <EnterDestination style={styles.destination} />
+          <Map
+            style={styles.map}
+            region={this.state.region}
+            stations={this.state.stations}
+          />
+        </View>;
   }
 }
 
@@ -56,8 +56,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  destination: {
+    flex: 1,
+  },
   map: {
-    flex: 3,
+    flex: 6,
   },
 });
 
