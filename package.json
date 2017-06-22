@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "enzyme": "^2.8.2",
     "fetch-mock": "^5.11.0",
-    "jest-expo": "~1.0.1",
+    "jest-expo": "^1.0.3",
     "node-fetch": "^1.7.1",
     "react-native-scripts": "0.0.31",
     "react-test-renderer": "16.0.0-alpha.6"
@@ -27,6 +28,7 @@
     "graphql-tools": "^1.0.0",
     "jest": "^20.0.4",
     "react": "16.0.0-alpha.6",
-    "react-native": "^0.44.0"
+    "react-native": "^0.44.0",
+    "react-native-maps": "^0.15.2"
   }
 }

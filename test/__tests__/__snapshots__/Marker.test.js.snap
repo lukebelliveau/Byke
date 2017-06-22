@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marker should be green 1`] = `
+<AIRMapMarker
+  coordinate={
+    Object {
+      "latitude": 50,
+      "longitude": 50,
+    }
+  }
+  description="8 bikes available"
+  image={undefined}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "position": "absolute",
+      },
+      undefined,
+    ]
+  }
+  title="station"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "green",
+        "borderRadius": 10,
+        "height": 20,
+        "width": 20,
+      }
+    }
+  />
+</AIRMapMarker>
+`;
+
+exports[`Marker should be red 1`] = `
+<AIRMapMarker
+  coordinate={
+    Object {
+      "latitude": 50,
+      "longitude": 50,
+    }
+  }
+  description="4 bikes available"
+  image={undefined}
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "position": "absolute",
+      },
+      undefined,
+    ]
+  }
+  title="station"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "red",
+        "borderRadius": 10,
+        "height": 20,
+        "width": 20,
+      }
+    }
+  />
+</AIRMapMarker>
+`;

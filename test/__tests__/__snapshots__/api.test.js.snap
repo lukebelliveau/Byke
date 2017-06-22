@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`graphQL client should return the correct params 1`] = `
+Array [
+  Object {
+    "latitude": 99,
+    "longitude": 99,
+  },
+  Object {
+    "latitude": 99,
+    "longitude": 99,
+  },
+]
+`;
