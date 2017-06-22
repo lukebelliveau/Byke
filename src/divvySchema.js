@@ -1,4 +1,4 @@
-export default`
+export default `
 type Query {
   allStations: [Station]
 }
@@ -11,4 +11,4 @@ type Station {
   availableBikes: Int,
   latitude: Float,
   longitude: Float,
-}`
+}`;

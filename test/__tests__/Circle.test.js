@@ -3,15 +3,15 @@ import renderer from 'react-test-renderer';
 import Circle from '../../src/Circle';
 
 describe('Marker', () => {
-    it('should be green', () => {
-        const marker = renderer.create(<Circle color={'green'} />).toJSON();
+  it('should be green', () => {
+    const marker = renderer.create(<Circle color={'green'} />).toJSON();
 
-        expect(marker).toMatchSnapshot();
-    });
+    expect(marker).toMatchSnapshot();
+  });
 
-    it('should be red', () => {
-        const marker = renderer.create(<Circle color={'red'} />).toJSON();
+  it('should be red', () => {
+    const marker = renderer.create(<Circle color={'red'} />).toJSON();
 
-        expect(marker).toMatchSnapshot();
-    })
+    expect(marker).toMatchSnapshot();
+  });
 });
