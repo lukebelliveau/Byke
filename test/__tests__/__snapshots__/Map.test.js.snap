@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with location marker and markers for stations 1`] = `
+<MapView
+  initialRegion={
+    Object {
+      "latitude": 1,
+      "latitudeDelta": 3,
+      "longitude": 2,
+      "longitudeDelta": 4,
+    }
+  }
+  region={
+    Object {
+      "latitude": 1,
+      "latitudeDelta": 3,
+      "longitude": 2,
+      "longitudeDelta": 4,
+    }
+  }
+  style={Object {}}
+>
+  <Marker
+    coordinate={
+      Object {
+        "latitude": 1,
+        "latitudeDelta": 3,
+        "longitude": 2,
+        "longitudeDelta": 4,
+      }
+    }
+  />
+  <Marker
+    coordinate={
+      Object {
+        "availableBikes": 2,
+        "latitude": 50,
+        "longitude": 60,
+        "stationName": "station1",
+      }
+    }
+    description="2 bikes available"
+    title="station1"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "red",
+          "borderRadius": 10,
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+  </Marker>
+</MapView>
+`;
