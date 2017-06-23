@@ -10,6 +10,14 @@ const getAllStations = (stationParams: string) =>
     })
     .catch(e => console.log(e));
 
+const searchPlaces = searchQuery =>
+  fetch(
+    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyAQhawlRtPkYdpC4VHgaB1n3yLOVOEZbYE&location=41.917547,-87.635919&radius=10000&keyword=${searchQuery}`
+  ).then(response => {
+    response.json().then(res => console.log(res));
+  });
+
 export default {
   getAllStations,
+  searchPlaces,
 };

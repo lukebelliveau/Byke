@@ -26,6 +26,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "enzyme-wait": "^1.0.9",
     "expo": "^17.0.0",
     "graphql": "^0.10.3",
     "graphql-tools": "^1.0.0",

@@ -1,16 +1,38 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
-const EnterDestination = ({ style }: { style: Object }) =>
-  <View style={[style, styles.container]}>
-    <TextInput
-      style={styles.input}
-      underlineColorAndroid="transparent"
-      placeholder="Where are you going?"
-      placeholderTextColor="lightgray"
-    />
-  </View>;
+const initialState = {
+  enteredText: '',
+};
+
+class EnterDestination extends Component {
+  state = initialState;
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
+  textChanged = event => {
+    this.setState({ enteredText: event });
+  };
+
+  render() {
+    return (
+      <View style={[this.props.style, styles.container]}>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Where are you going?"
+          placeholderTextColor="lightgray"
+          onChangeText={this.textChanged}
+          onSubmitEditing={() => this.props.onSubmit(this.state.enteredText)}
+          returnKeyType="go"
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

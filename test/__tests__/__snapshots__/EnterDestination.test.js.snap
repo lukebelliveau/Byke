@@ -18,8 +18,11 @@ exports[`should render 1`] = `
   }
 >
   <TextInput
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
     placeholder="Where are you going?"
     placeholderTextColor="lightgray"
+    returnKeyType="go"
     style={
       Object {
         "backgroundColor": "deepskyblue",

@@ -15,6 +15,8 @@ class Byke extends React.Component {
       region: null,
       stations: [],
     };
+
+    this.searchDestination = this.searchDestination.bind(this);
   }
 
   componentDidMount() {
@@ -44,11 +46,18 @@ class Byke extends React.Component {
     });
   }
 
+  searchDestination(searchQuery) {
+    api.searchPlaces(searchQuery);
+  }
+
   render() {
     return this.state.region == null
       ? <View />
       : <View style={styles.container}>
-          <EnterDestination style={styles.destination} />
+          <EnterDestination
+            onSubmit={this.searchDestination}
+            style={styles.destination}
+          />
           <Map
             style={styles.map}
             region={this.state.region}
