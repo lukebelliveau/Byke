@@ -5,6 +5,7 @@
   "devDependencies": {
     "enzyme": "^2.8.2",
     "fetch-mock": "^5.11.0",
+    "flow-bin": "^0.42.0",
     "jest-expo": "^1.0.3",
     "node-fetch": "^1.7.1",
     "react-native-scripts": "0.0.31",
