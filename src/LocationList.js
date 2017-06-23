@@ -1,11 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 
 const LocationList = ({ results }) => {
   console.log(results);
   return (
     <View style={styles.container}>
-      {results.map(result => <LocationCard result={result} />)}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {results.map(result =>
+          <LocationCard result={result} key={result.id} />
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -48,7 +58,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    height: '20%',
+    height: 150,
     backgroundColor: 'white',
     margin: 5,
     elevation: 5,
