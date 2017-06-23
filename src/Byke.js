@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, AsyncStorage } from 'react-native';
 
 import api from './api';
 import Map from './Map';
@@ -23,14 +23,7 @@ class Byke extends React.Component {
   componentDidMount() {
     this.updateLocation();
 
-    api
-      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
-      .then(stations => {
-        this.setState({
-          stations,
-        });
-      });
-
+    this.loadStations();
     setInterval(() => this.updateLocation(), 1000);
   }
 
@@ -47,8 +40,46 @@ class Byke extends React.Component {
     });
   }
 
+  loadStations() {
+    const stations = AsyncStorage.getItem('@Byke:stations')
+      .then(stations => {
+        if (stations !== null) {
+          console.log('Loading stations from cache...');
+          this.setState({
+            stations: JSON.parse(stations),
+          });
+        } else {
+          this.fetchStationInfo();
+        }
+      })
+      .catch(e => {
+        console.log('error fetching stations!');
+        console.log(e);
+      });
+  }
+
+  fetchStationInfo = () => {
+    console.log('Fetching stations from web...');
+    api
+      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
+      .then(stations => {
+        AsyncStorage.setItem(
+          '@Byke:stations',
+          JSON.stringify(stations)
+        ).catch(e => console.log('error:' + e));
+        this.setState({
+          stations,
+        });
+      });
+  };
+
   searchDestination = (searchQuery: string) => {
-    api.searchPlaces(searchQuery, this.state.region.latitude, this.state.region.longitude)
+    api
+      .searchPlaces(
+        searchQuery,
+        this.state.region.latitude,
+        this.state.region.longitude
+      )
       .then(res => console.log(res));
   };
 

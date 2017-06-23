@@ -26,7 +26,6 @@ it('calls searchPlaces API with location when user submits destination', done =>
   });
 });
 
-
 /*
  * CONFIG
  * */
