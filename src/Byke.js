@@ -1,20 +1,21 @@
+// @flow
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import api from './api';
 import Map from './Map';
 import EnterDestination from './EnterDestination';
+import getLocation from './geolocation';
 
-const getLocation = (success, error = null, options = {}) =>
-  navigator.geolocation.getCurrentPosition(success, error, options);
+const initialState = {
+  region: null,
+  stations: [],
+};
 
 class Byke extends React.Component {
+  state = initialState;
   constructor() {
     super();
-    this.state = {
-      region: null,
-      stations: [],
-    };
 
     this.searchDestination = this.searchDestination.bind(this);
   }
@@ -46,9 +47,9 @@ class Byke extends React.Component {
     });
   }
 
-  searchDestination(searchQuery) {
+  searchDestination = (searchQuery: string) => {
     api.searchPlaces(searchQuery);
-  }
+  };
 
   render() {
     return this.state.region == null

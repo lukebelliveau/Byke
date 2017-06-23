@@ -6,15 +6,20 @@ const initialState = {
   enteredText: '',
 };
 
+type Props = {
+  style: Object,
+  onSubmit: string => void,
+};
+
 class EnterDestination extends Component {
   state = initialState;
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.props = props;
   }
 
-  textChanged = event => {
-    this.setState({ enteredText: event });
+  textChanged = (text: string) => {
+    this.setState({ enteredText: text });
   };
 
   render() {
