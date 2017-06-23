@@ -1,10 +1,19 @@
+// @flow
 import React from 'react';
 import MapView from 'react-native-maps';
 import { Keyboard } from 'react-native';
 
 import Circle from './Circle';
 
-const Marker = ({ coordinate, stationName, availableBikes }) =>
+const Marker = ({
+  coordinate,
+  stationName,
+  availableBikes,
+}: {
+  coordinate: Object,
+  stationName: string,
+  availableBikes: number,
+}) =>
   <MapView.Marker
     coordinate={coordinate}
     title={stationName}

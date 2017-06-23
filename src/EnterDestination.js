@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
-const EnterDestination = ({ style }) =>
+const EnterDestination = ({ style }: { style: Object }) =>
   <View style={[style, styles.container]}>
     <TextInput
       style={styles.input}

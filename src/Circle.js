@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import { View } from 'react-native';
 
-export default ({ color }) => <View style={style(color)} />;
+export default ({ color }: { color: string }) => <View style={style(color)} />;
 
 const style = color => ({
   width: 15,

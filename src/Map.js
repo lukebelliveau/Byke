@@ -1,10 +1,26 @@
+// @flow
 import React from 'react';
 import { Keyboard } from 'react-native';
 import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
 
-const Map = ({ region, stations, style }) =>
+type Station = {
+  latitude: number,
+  longitude: number,
+  stationName: string,
+  availableBikes: number,
+};
+
+const Map = ({
+  region,
+  stations,
+  style,
+}: {
+  region: { number: string },
+  stations: Array<Station>,
+  style: Object,
+}) =>
   <MapView
     style={style}
     region={region}

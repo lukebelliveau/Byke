@@ -8,7 +8,6 @@
     "flow-bin": "^0.42.0",
     "jest-expo": "^1.0.3",
     "node-fetch": "^1.7.1",
-    "react-native-mock": "^0.3.1",
     "react-native-scripts": "0.0.31",
     "react-test-renderer": "16.0.0-alpha.6"
   },
@@ -19,7 +18,8 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "snapdate": "jest --updateSnapshot"
+    "snapdate": "jest --updateSnapshot",
+    "flow": "flow"
   },
   "jest": {
     "preset": "jest-expo"
