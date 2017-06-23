@@ -6,8 +6,8 @@ exports[`Marker should be green 1`] = `
     Object {
       "backgroundColor": "green",
       "borderRadius": 10,
-      "height": 20,
-      "width": 20,
+      "height": 15,
+      "width": 15,
     }
   }
 />
@@ -19,8 +19,8 @@ exports[`Marker should be red 1`] = `
     Object {
       "backgroundColor": "red",
       "borderRadius": 10,
-      "height": 20,
-      "width": 20,
+      "height": 15,
+      "width": 15,
     }
   }
 />

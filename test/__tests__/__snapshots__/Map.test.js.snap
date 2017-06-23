@@ -10,6 +10,7 @@ exports[`renders with location marker and markers for stations 1`] = `
       "longitudeDelta": 4,
     }
   }
+  onPress={[Function]}
   region={
     Object {
       "latitude": 1,
@@ -40,6 +41,7 @@ exports[`renders with location marker and markers for stations 1`] = `
       }
     }
     description="2 bikes available"
+    onPress={[Function]}
     title="station1"
   >
     <View
@@ -47,8 +49,8 @@ exports[`renders with location marker and markers for stations 1`] = `
         Object {
           "backgroundColor": "red",
           "borderRadius": 10,
-          "height": 20,
-          "width": 20,
+          "height": 15,
+          "width": 15,
         }
       }
     />
