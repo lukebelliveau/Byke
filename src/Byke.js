@@ -18,6 +18,20 @@ class Byke extends React.Component {
   }
 
   componentDidMount() {
+    this.updateLocation();
+
+    api
+      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
+      .then(stations => {
+        this.setState({
+          stations,
+        });
+      });
+
+    setInterval(() => this.updateLocation(), 1000);
+  }
+
+  updateLocation() {
     getLocation(location => {
       this.setState(prevState => ({
         region: {
@@ -28,14 +42,6 @@ class Byke extends React.Component {
         },
       }));
     });
-
-    api
-      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
-      .then(stations => {
-        this.setState({
-          stations,
-        });
-      });
   }
 
   render() {
