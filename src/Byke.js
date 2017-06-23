@@ -48,7 +48,8 @@ class Byke extends React.Component {
   }
 
   searchDestination = (searchQuery: string) => {
-    api.searchPlaces(searchQuery, this.state.region.latitude, this.state.region.longitude);
+    api.searchPlaces(searchQuery, this.state.region.latitude, this.state.region.longitude)
+      .then(res => console.log(res));
   };
 
   render() {

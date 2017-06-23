@@ -6,7 +6,7 @@ import api from '../../src/api';
 import Byke from '../../src/Byke';
 import Map from '../../src/Map';
 
-api.searchPlaces = jest.fn();
+api.searchPlaces = jest.fn(() => new Promise(resolve => resolve([])));
 
 it('calls searchPlaces API with location when user submits destination', done => {
   const latitude = 50;
