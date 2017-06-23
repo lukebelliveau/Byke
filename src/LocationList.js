@@ -1,10 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
-const LocationList = ({ result }) =>
-  <View style={styles.container}>
-    <LocationCard result={result} />
-  </View>;
+const LocationList = ({ results }) => {
+  console.log(results);
+  return (
+    <View style={styles.container}>
+      {results.map(result => <LocationCard result={result} />)}
+    </View>
+  );
+};
 
 const LocationCard = ({ result }) =>
   <View style={styles.card}>
@@ -46,18 +50,20 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '20%',
     backgroundColor: 'white',
+    margin: 5,
+    elevation: 5,
   },
   infoContainer: {
     flex: 4,
     paddingLeft: 10,
-    paddingTop: 10,
+    paddingTop: 5,
   },
   title: {
-    fontSize: 40,
+    fontSize: 25,
   },
   address: {
     position: 'absolute',
-    bottom: 10,
+    bottom: 5,
     fontSize: 15,
     width: '75%',
     color: 'gray',

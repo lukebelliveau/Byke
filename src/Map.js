@@ -22,7 +22,7 @@ const Map = ({
   style: Object,
 }) =>
   <MapView
-    style={style}
+    style={{ flex: 1 }}
     region={region}
     initialRegion={region}
     onPress={Keyboard.dismiss}

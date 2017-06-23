@@ -16,9 +16,7 @@ const searchPlaces = (searchQuery: string, latitude, longitude) =>
   fetch(
     `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${googleMapsAPIKey}&location=${latitude},${longitude}&radius=10000&keyword=${searchQuery}`
   )
-    .then(response => {
-      response.json().then(json => json.results);
-    })
+    .then(response => response)
     .catch(e => console.log(e));
 
 export default {
