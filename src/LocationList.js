@@ -10,7 +10,10 @@ import {
 const LocationList = ({ results }) => {
   console.log(results);
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      pointerEvents={results.length > 0 ? 'auto' : 'none'}
+    >
       <ScrollView showsVerticalScrollIndicator={false}>
         {results.map(result =>
           <LocationCard result={result} key={result.id} />
