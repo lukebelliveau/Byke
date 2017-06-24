@@ -23,7 +23,6 @@ const LocationList = ({ results, onSelect }) => {
 };
 
 const LocationCard = ({ result, onSelect }) => {
-  console.log(result);
   return (
     <View style={styles.card}>
       <View style={styles.infoContainer}>
@@ -43,8 +42,6 @@ const LocationCard = ({ result, onSelect }) => {
 };
 
 const Button = ({ coordinates, onSelect }) => {
-  console.log('BUTTON');
-  console.log(coordinates);
   return (
     <TouchableOpacity
       style={styles.button}

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
@@ -28,7 +28,12 @@ const Map = ({
     initialRegion={region}
     onPress={Keyboard.dismiss}
   >
-    {trip ? null : <MapView.Marker coordinate={region} />}
+    {trip
+      ? <View>
+          <MapView.Marker coordinate={trip.currentLocation} pinColor="blue" />
+          <MapView.Marker coordinate={trip.destination} />
+        </View>
+      : <MapView.Marker coordinate={region} />}
 
     {stations.map((station, index) =>
       <StationMarker

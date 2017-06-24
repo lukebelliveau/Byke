@@ -16,6 +16,7 @@ const initialState = {
   region: null,
   stations: [],
   results: [],
+  trip: null,
 };
 
 class Byke extends React.Component {
@@ -35,11 +36,13 @@ class Byke extends React.Component {
 
   destinationSelected = destination => {
     getLocation(location => {
-      console.log('***');
-      console.log(destination);
       this.setState({
         region: computeRegion([destination, location.coords]),
         results: [],
+        trip: {
+          currentLocation: location.coords,
+          destination,
+        },
       });
     });
   };
@@ -112,7 +115,11 @@ class Byke extends React.Component {
             style={styles.destination}
           />
           <View style={styles.map}>
-            <Map region={this.state.region} stations={this.state.stations} />
+            <Map
+              region={this.state.region}
+              stations={this.state.stations}
+              trip={this.state.trip}
+            />
             <LocationList
               results={this.state.results}
               onSelect={this.destinationSelected}
