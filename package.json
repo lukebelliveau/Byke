@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "enzyme": "^2.9.0",
+    "enzyme-to-json": "^1.5.1",
     "fetch-mock": "^5.11.0",
     "flow-bin": "^0.42.0",
     "jest-expo": "^1.0.3",

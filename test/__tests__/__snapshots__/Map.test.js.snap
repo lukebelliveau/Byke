@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`fetches stations and displays them 1`] = `
+<MockMapView
+  initialRegion={
+    Object {
+      "latitude": 1,
+      "latitudeDelta": 3,
+      "longitude": 2,
+      "longitudeDelta": 4,
+    }
+  }
+  onPress={[Function]}
+  region={
+    Object {
+      "latitude": 1,
+      "latitudeDelta": 3,
+      "longitude": 2,
+      "longitudeDelta": 4,
+    }
+  }
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <MockMarker
+    coordinate={
+      Object {
+        "latitude": 1,
+        "latitudeDelta": 3,
+        "longitude": 2,
+        "longitudeDelta": 4,
+      }
+    }
+  />
+</MockMapView>
+`;
+
 exports[`renders a trip with marker in location and destination 1`] = `
 <MapView
   initialRegion={
@@ -44,91 +82,5 @@ exports[`renders a trip with marker in location and destination 1`] = `
       }
     />
   </View>
-  <Marker
-    coordinate={
-      Object {
-        "availableBikes": 2,
-        "latitude": 50,
-        "longitude": 60,
-        "stationName": "station1",
-      }
-    }
-    description="2 bikes available"
-    onPress={[Function]}
-    title="station1"
-  >
-    <View
-      style={
-        Object {
-          "backgroundColor": "red",
-          "borderRadius": 10,
-          "height": 15,
-          "width": 15,
-        }
-      }
-    />
-  </Marker>
-</MapView>
-`;
-
-exports[`renders with location marker and markers for stations 1`] = `
-<MapView
-  initialRegion={
-    Object {
-      "latitude": 1,
-      "latitudeDelta": 3,
-      "longitude": 2,
-      "longitudeDelta": 4,
-    }
-  }
-  onPress={[Function]}
-  region={
-    Object {
-      "latitude": 1,
-      "latitudeDelta": 3,
-      "longitude": 2,
-      "longitudeDelta": 4,
-    }
-  }
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Marker
-    coordinate={
-      Object {
-        "latitude": 1,
-        "latitudeDelta": 3,
-        "longitude": 2,
-        "longitudeDelta": 4,
-      }
-    }
-  />
-  <Marker
-    coordinate={
-      Object {
-        "availableBikes": 2,
-        "latitude": 50,
-        "longitude": 60,
-        "stationName": "station1",
-      }
-    }
-    description="2 bikes available"
-    onPress={[Function]}
-    title="station1"
-  >
-    <View
-      style={
-        Object {
-          "backgroundColor": "red",
-          "borderRadius": 10,
-          "height": 15,
-          "width": 15,
-        }
-      }
-    />
-  </Marker>
 </MapView>
 `;

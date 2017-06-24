@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { StyleSheet, View, AsyncStorage } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import api from './api';
 import Map from './Map';
@@ -14,7 +14,6 @@ import testLocations from '../test/testLocations';
 
 const initialState = {
   region: null,
-  stations: [],
   results: [],
   trip: null,
 };
@@ -29,8 +28,6 @@ class Byke extends React.Component {
 
   componentDidMount() {
     this.centerRegionOnUser();
-
-    this.loadStations();
     // setInterval(() => this.centerRegionOnUser(), 1000);
   }
 
@@ -60,36 +57,6 @@ class Byke extends React.Component {
     });
   }
 
-  loadStations() {
-    const stations = AsyncStorage.getItem('@Byke:stations')
-      .then(stations => {
-        if (stations !== null) {
-          this.setState({
-            stations: JSON.parse(stations),
-          });
-        } else {
-          this.fetchStationInfo();
-        }
-      })
-      .catch(e => {
-        Error('error fetching stations!' + e);
-      });
-  }
-
-  fetchStationInfo = () => {
-    api
-      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
-      .then(stations => {
-        AsyncStorage.setItem(
-          '@Byke:stations',
-          JSON.stringify(stations)
-        ).catch(e => console.log('error:' + e));
-        this.setState({
-          stations,
-        });
-      });
-  };
-
   searchDestination = (searchQuery: string) => {
     api
       .searchPlaces(
@@ -115,11 +82,7 @@ class Byke extends React.Component {
             style={styles.destination}
           />
           <View style={styles.map}>
-            <Map
-              region={this.state.region}
-              stations={this.state.stations}
-              trip={this.state.trip}
-            />
+            <Map region={this.state.region} trip={this.state.trip} />
             <LocationList
               results={this.state.results}
               onSelect={this.destinationSelected}
@@ -138,13 +101,6 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 6,
-  },
-  stationInfo: {
-    position: 'absolute',
-    top: 0,
-    right: 10,
-    width: 50,
-    height: 50,
   },
 });
 

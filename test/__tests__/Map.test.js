@@ -1,8 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Map from '../../src/Map';
 import { shallow } from 'enzyme';
 import { Keyboard } from 'react-native';
+import { createWaitForElement } from 'enzyme-wait';
+import toJson from 'enzyme-to-json';
+
+import Map from '../../src/Map';
+import StationMarker from '../../src/StationMarker';
+import api from '../../src/api';
 
 const region = {
   latitude: 1,
@@ -11,15 +16,21 @@ const region = {
   longitudeDelta: 4,
 };
 const stations = [
-  { stationName: 'station1', availableBikes: 2, latitude: 50, longitude: 60 },
+  { stationName: 'station1', availableBikes: 1, latitude: 50, longitude: 60 },
 ];
 
-it('renders with location marker and markers for stations', () => {
-  const map = renderer
-    .create(<Map region={region} stations={stations} style={{}} />)
-    .toJSON();
+api.getAllStations = jest.fn(() => new Promise(resolve => resolve(stations)));
 
-  expect(map).toMatchSnapshot();
+it('fetches stations and displays them', done => {
+  const waitForStations = createWaitForElement(StationMarker);
+  const map = shallow(<Map region={region} />);
+
+  map.instance().componentDidMount();
+
+  waitForStations(map).then(component => {
+    expect(toJson(component)).toMatchSnapshot();
+    done();
+  });
 });
 
 it('renders a trip with marker in location and destination', () => {
@@ -28,7 +39,7 @@ it('renders a trip with marker in location and destination', () => {
     destination: { latitude: 199, longitude: 199 },
   };
   const map = renderer
-    .create(<Map region={region} stations={stations} style={{}} trip={trip} />)
+    .create(<Map region={region} trip={trip} />)
     .toJSON();
 
   expect(map).toMatchSnapshot();
