@@ -36,8 +36,8 @@ class Map extends Component {
     this.fetchStationInfo();
   }
 
-  animateToRegion(region) {
-    this.map.animateToRegion(region)
+  componentDidUpdate() {
+    this.map.animateToRegion(this.props.region)
   }
 
   loadStations() {

@@ -33,15 +33,14 @@ class Byke extends React.Component {
 
   destinationSelected = destination => {
     getLocation(location => {
-      const region = computeRegion([destination, location.coords])
       this.setState({
-        region: region,
+        region: computeRegion([destination, location.coords]),
         results: [],
         trip: {
           currentLocation: location.coords,
           destination,
         },
-      }, () => this.map.animateToRegion(region));
+      });
     });
   };
 
@@ -78,18 +77,18 @@ class Byke extends React.Component {
     return this.state.region == null
       ? <View />
       : <View style={styles.container}>
-          <EnterDestination
-            onSubmit={this.searchDestination}
-            style={styles.destination}
+        <EnterDestination
+          onSubmit={this.searchDestination}
+          style={styles.destination}
+        />
+        <View style={styles.map}>
+          <Map region={this.state.region} trip={this.state.trip} />
+          <LocationList
+            results={this.state.results}
+            onSelect={this.destinationSelected}
           />
-          <View style={styles.map}>
-            <Map region={this.state.region} trip={this.state.trip} ref={ref => { this.map = ref; }}/>
-            <LocationList
-              results={this.state.results}
-              onSelect={this.destinationSelected}
-            />
-          </View>
-        </View>;
+        </View>
+      </View>;
   }
 }
 
