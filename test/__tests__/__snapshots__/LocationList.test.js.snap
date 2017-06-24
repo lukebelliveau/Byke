@@ -32,6 +32,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Center on Halsted"
       >
         <View
           style={
@@ -145,6 +146,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="University of Chicago: Gleacher Center"
       >
         <View
           style={
@@ -258,6 +260,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Hoover-Leppen Theatre"
       >
         <View
           style={
@@ -371,6 +374,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Ravenswood Event Center"
       >
         <View
           style={
@@ -484,6 +488,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="McCormick Place"
       >
         <View
           style={
@@ -597,6 +602,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="University Center"
       >
         <View
           style={
@@ -710,6 +716,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="United Center"
       >
         <View
           style={
@@ -823,6 +830,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Chicago Symphony Center"
       >
         <View
           style={
@@ -936,6 +944,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Gene Siskel Film Center"
       >
         <View
           style={
@@ -1049,6 +1058,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Intuit: The Center for Intuitive and Outsider Art"
       >
         <View
           style={
@@ -1162,6 +1172,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Japanese Culture Center"
       >
         <View
           style={
@@ -1275,6 +1286,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Lawndale Christian Fitness Center"
       >
         <View
           style={
@@ -1388,6 +1400,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Jesse White Community Center Park"
       >
         <View
           style={
@@ -1501,6 +1514,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Bodhi Spiritual Center"
       >
         <View
           style={
@@ -1614,6 +1628,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Illini Center"
       >
         <View
           style={
@@ -1727,6 +1742,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Summit Executive Center"
       >
         <View
           style={
@@ -1840,6 +1856,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Aloft Chicago City Center"
       >
         <View
           style={
@@ -1953,6 +1970,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Chicago Cultural Center"
       >
         <View
           style={
@@ -2066,6 +2084,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Chicago Latino Film Festival"
       >
         <View
           style={
@@ -2179,6 +2198,7 @@ exports[`renders a ScrollView of location cards 1`] = `
             "width": "100%",
           }
         }
+        testId="Conference Chicago"
       >
         <View
           style={

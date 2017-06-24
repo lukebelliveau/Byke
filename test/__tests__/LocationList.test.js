@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
-import { shallow , mount} from 'enzyme';
+import { shallow } from 'enzyme';
 
-import LocationList, { LocationCard } from '../../src/LocationList';
+import LocationList from '../../src/LocationList';
 import testLocations from '../testLocations';
 
 it('renders a ScrollView of location cards', () => {
@@ -12,4 +12,23 @@ it('renders a ScrollView of location cards', () => {
   );
 
   expect(locations).toMatchSnapshot();
+});
+
+it('calls onSelect when an option is selected', () => {
+  const onSelect = jest.fn();
+  const locations = shallow(
+    <LocationList results={testLocations} onSelect={onSelect} />
+  );
+  const firstLocation = testLocations[0];
+  firstLocation.coordinates = {
+    latitude: firstLocation.geometry.location.lat,
+    longitude: firstLocation.geometry.location.lng,
+  };
+
+  const card = locations.find({ testId: `${firstLocation.name}Card` }).dive();
+  const button = card.find({ testId: `${firstLocation.name}Button` }).dive();
+
+  button.find(TouchableOpacity).simulate('press');
+
+  expect(onSelect).toBeCalledWith(firstLocation.coordinates);
 });

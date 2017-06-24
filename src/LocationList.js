@@ -14,18 +14,24 @@ const LocationList = ({ results, onSelect }) =>
   >
     <ScrollView showsVerticalScrollIndicator={false}>
       {results.map(result =>
-        <LocationCard result={result} key={result.id} onSelect={onSelect} />
+        <LocationCard
+          testId={`${result.name}Card`}
+          result={result}
+          key={result.id}
+          onSelect={onSelect}
+        />
       )}
     </ScrollView>
   </View>;
 
 const LocationCard = ({ result, onSelect }) =>
-  <View style={styles.card}>
+  <View style={styles.card} testId={result.name}>
     <View style={styles.infoContainer}>
       <Info name={result.name} address={result.vicinity} />
     </View>
     <View style={styles.buttonContainer}>
       <Button
+        testId={`${result.name}Button`}
         onSelect={onSelect}
         coordinates={{
           latitude: result.geometry.location.lat,
