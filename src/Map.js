@@ -36,6 +36,10 @@ class Map extends Component {
     this.fetchStationInfo();
   }
 
+  animateToRegion(region) {
+    this.map.animateToRegion(region)
+  }
+
   loadStations() {
     const stations = AsyncStorage.getItem('@Byke:stations')
       .then(stations => {
@@ -76,9 +80,10 @@ class Map extends Component {
         {
           <MapView
             style={{ flex: 1 }}
-            region={region}
+            //region={region}
             initialRegion={region}
             onPress={Keyboard.dismiss}
+            ref={ref => { this.map = ref; }}
           >
             {trip
               ? <View>

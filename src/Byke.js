@@ -33,14 +33,15 @@ class Byke extends React.Component {
 
   destinationSelected = destination => {
     getLocation(location => {
+      const region = computeRegion([destination, location.coords])
       this.setState({
-        region: computeRegion([destination, location.coords]),
+        region: region,
         results: [],
         trip: {
           currentLocation: location.coords,
           destination,
         },
-      });
+      }, () => this.map.animateToRegion(region));
     });
   };
 
@@ -82,7 +83,7 @@ class Byke extends React.Component {
             style={styles.destination}
           />
           <View style={styles.map}>
-            <Map region={this.state.region} trip={this.state.trip} />
+            <Map region={this.state.region} trip={this.state.trip} ref={ref => { this.map = ref; }}/>
             <LocationList
               results={this.state.results}
               onSelect={this.destinationSelected}
