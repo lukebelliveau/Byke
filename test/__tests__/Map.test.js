@@ -1,14 +1,13 @@
 import React from 'react';
+import { createStore } from 'redux';
 import renderer from 'react-test-renderer';
-import MapView from 'react-native-maps';
-import { shallow } from 'enzyme';
-import { Keyboard } from 'react-native';
-import { createWaitForElement } from 'enzyme-wait';
-import toJson from 'enzyme-to-json';
 
-import Map from '../../src/Map/Map';
-import StationMarker from '../../src/StationMarker';
+import Map from '../../src/Map/MapContainer';
 import api from '../../src/api';
+import connectToRedux from '../connectToRedux';
+import reducers from '../../src/redux/reducers';
+import actions from '../../src/redux/actions';
+
 
 const region = {
   latitude: 1,
@@ -26,31 +25,18 @@ const trip = {
 
 api.getAllStations = jest.fn(() => new Promise(resolve => resolve(stations)));
 
-it('fetches stations and displays them', done => {
-  const waitForStations = createWaitForElement(StationMarker);
-  const map = shallow(<Map region={region} />);
-
-  map.instance().componentDidMount();
-
-  waitForStations(map).then(component => {
-    expect(toJson(component)).toMatchSnapshot();
-    done();
-  });
-});
-
-it('renders a trip with marker in location and destination', () => {
-  const map = renderer.create(<Map region={region} trip={trip} />).toJSON();
+it('displays stations in state', () => {
+  const store = createStore(reducers);
+  store.dispatch(actions.stationsFetched(stations))
+  const map = connectToRedux(<Map />, store);
 
   expect(map).toMatchSnapshot();
 });
 
-it('dismisses the keyboard when pressed', () => {
-  Keyboard.dismiss = jest.fn();
-  const map = shallow(<Map region={region} stations={stations} style={{}} />);
+it.only('renders a trip with marker in location and destination', () => {
+  const map = renderer.create(<Map region={region} trip={trip} />).toJSON();
 
-  map.find(MapView).simulate('press');
-
-  expect(Keyboard.dismiss.mock.calls.length).toBeGreaterThan(0);
+  expect(map).toMatchSnapshot();
 });
 
 /*

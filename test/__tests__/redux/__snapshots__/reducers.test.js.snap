@@ -1,13 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`puts stations in state 1`] = `
+Object {
+  "isLoading": false,
+  "stations": Array [
+    "station1",
+    "station2",
+  ],
+}
+`;
+
 exports[`sets loading to false 1`] = `
 Object {
   "isLoading": false,
+  "stations": Array [],
 }
 `;
 
 exports[`sets loading to true 1`] = `
 Object {
   "isLoading": true,
+  "stations": Array [],
 }
 `;

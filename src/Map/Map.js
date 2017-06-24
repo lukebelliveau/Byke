@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Keyboard, View, AsyncStorage } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 import StationMarker from '../StationMarker';
@@ -20,18 +20,11 @@ type Props = {
   trip: Object,
 };
 
-const initialState = {
-  stations: [],
-};
 class Map extends Component {
-  state = initialState;
   constructor(props: Props) {
     super(props);
 
     this.props = props;
-  }
-
-  componentDidMount() {
     this.fetchStationInfo();
   }
 
@@ -39,40 +32,20 @@ class Map extends Component {
     this.map.animateToRegion(this.props.region);
   }
 
-  loadStations() {
-    const stations = AsyncStorage.getItem('@Byke:stations')
-      .then(stations => {
-        if (stations !== null) {
-          this.setState({
-            stations: JSON.parse(stations),
-          });
-        } else {
-          this.fetchStationInfo();
-        }
-      })
-      .catch(e => {
-        Error('error fetching stations!' + e);
-      });
-  }
-
   fetchStationInfo = () => {
+    this.props.loadingStarted();
     api
       .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
       .then(stations => {
-        AsyncStorage.setItem(
-          '@Byke:stations',
-          JSON.stringify(stations)
-        ).catch(e => console.log('error:' + e));
-        this.setState({
-          stations,
-        });
+        this.props.stationsFetched(stations);
+        this.props.loadingFinished();
       });
   };
 
   render() {
     const trip = this.props.trip;
     const region = this.props.region;
-    const stations = this.state.stations;
+    const stations = this.props.stations;
 
     return (
       <View style={{ flex: 1 }}>
@@ -84,29 +57,31 @@ class Map extends Component {
               this.map = ref;
             }}
           >
-            {trip
-              ? <View>
-                  <MapView.Marker
-                    coordinate={trip.currentLocation}
-                    pinColor="blue"
-                  />
-                  <MapView.Marker coordinate={trip.destination} />
-                </View>
-              : <MapView.Marker coordinate={region} />}
-
-            {stations.map((station, index) =>
-              <StationMarker
-                testId={station.stationName}
-                stationName={station.stationName}
-                coordinate={station}
-                availableBikes={station.availableBikes}
-                key={index}
-              />
-            )}
+            <MapContents region={region} stations={stations} trip={trip} />
           </MapView>
         }
       </View>
     );
   }
 }
+
+const MapContents = ({ region, stations, trip }) =>
+  <View>
+    {trip
+      ? <View>
+          <MapView.Marker coordinate={trip.currentLocation} pinColor="blue" />
+          <MapView.Marker coordinate={trip.destination} />
+        </View>
+      : <MapView.Marker coordinate={region} />}
+
+    {stations.map((station, index) =>
+      <StationMarker
+        testId={station.stationName}
+        stationName={station.stationName}
+        coordinate={station}
+        availableBikes={station.availableBikes}
+        key={index}
+      />
+    )}
+  </View>;
 export default Map;

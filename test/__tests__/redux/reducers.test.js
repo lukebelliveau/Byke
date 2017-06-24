@@ -16,3 +16,12 @@ it('sets loading to false', () => {
 
   expect(loading).toMatchSnapshot();
 });
+
+it('puts stations in state', () => {
+  const stations = ['station1', 'station2'];
+  const state = reducer();
+
+  const withStations = reducer(state, actions.stationsFetched(stations));
+
+  expect(withStations).toMatchSnapshot();
+});
