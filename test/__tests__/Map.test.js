@@ -22,6 +22,18 @@ it('renders with location marker and markers for stations', () => {
   expect(map).toMatchSnapshot();
 });
 
+it('renders a trip with marker in location and destination', () => {
+  const trip = {
+    currentLocation: { latitude: 99, longitude: 99 },
+    destination: { latitude: 199, longitude: 199 },
+  };
+  const map = renderer
+    .create(<Map region={region} stations={stations} style={{}} trip={trip} />)
+    .toJSON();
+
+  expect(map).toMatchSnapshot();
+});
+
 it('dismisses the keyboard when pressed', () => {
   Keyboard.dismiss = jest.fn();
   const map = shallow(<Map region={region} stations={stations} style={{}} />);
