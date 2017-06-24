@@ -37,7 +37,7 @@ class Map extends Component {
   }
 
   componentDidUpdate() {
-    this.map.animateToRegion(this.props.region)
+    this.map.animateToRegion(this.props.region);
   }
 
   loadStations() {
@@ -83,7 +83,9 @@ class Map extends Component {
             //region={region}
             initialRegion={region}
             onPress={Keyboard.dismiss}
-            ref={ref => { this.map = ref; }}
+            ref={ref => {
+              this.map = ref;
+            }}
           >
             {trip
               ? <View>

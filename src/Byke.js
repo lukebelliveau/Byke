@@ -23,7 +23,26 @@ class Byke extends React.Component {
   constructor() {
     super();
 
+    this.watchLocation();
+
     this.searchDestination = this.searchDestination.bind(this);
+  }
+
+  watchLocation() {
+    navigator.geolocation.watchPosition(
+      location => {
+        this.setState(prevState => ({
+          region: {
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          },
+        }));
+      },
+      null,
+      {}
+    );
   }
 
   componentDidMount() {
@@ -77,18 +96,18 @@ class Byke extends React.Component {
     return this.state.region == null
       ? <View />
       : <View style={styles.container}>
-        <EnterDestination
-          onSubmit={this.searchDestination}
-          style={styles.destination}
-        />
-        <View style={styles.map}>
-          <Map region={this.state.region} trip={this.state.trip} />
-          <LocationList
-            results={this.state.results}
-            onSelect={this.destinationSelected}
+          <EnterDestination
+            onSubmit={this.searchDestination}
+            style={styles.destination}
           />
-        </View>
-      </View>;
+          <View style={styles.map}>
+            <Map region={this.state.region} trip={this.state.trip} />
+            <LocationList
+              results={this.state.results}
+              onSelect={this.destinationSelected}
+            />
+          </View>
+        </View>;
   }
 }
 
