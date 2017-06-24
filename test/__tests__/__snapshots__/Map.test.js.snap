@@ -27,7 +27,6 @@ exports[`fetches stations and displays them 1`] = `
       }
     />
   </MockMapView>
-  <Loading />
 </View>
 `;
 
@@ -67,48 +66,5 @@ exports[`renders a trip with marker in location and destination 1`] = `
       />
     </View>
   </MapView>
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "flexDirection": "row",
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "white",
-          "borderRadius": 20,
-          "bottom": 20,
-          "display": "flex",
-          "elevation": 5,
-          "justifyContent": "center",
-          "padding": 10,
-          "position": "absolute",
-          "width": "50%",
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 30,
-          }
-        }
-      >
-        Loading...
-      </Text>
-    </View>
-  </View>
 </View>
 `;

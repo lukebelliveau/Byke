@@ -5,9 +5,10 @@ import { StyleSheet, View } from 'react-native';
 import api from './api';
 import Map from './Map/MapContainer';
 import EnterDestination from './EnterDestination';
-import getLocation from './geolocation';
-
 import LocationList from './LocationList';
+import Loading from './Loading';
+
+import getLocation from './geolocation';
 import computeRegion from './utils';
 
 import testLocations from '../test/testLocations';
@@ -106,6 +107,7 @@ class Byke extends React.Component {
               results={this.state.results}
               onSelect={this.destinationSelected}
             />
+            <Loading />
           </View>
         </View>;
   }

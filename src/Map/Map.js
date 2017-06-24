@@ -5,7 +5,6 @@ import MapView from 'react-native-maps';
 
 import StationMarker from '../StationMarker';
 import api from '../api';
-import Loading from '../Loading';
 
 type Station = {
   latitude: number,
@@ -106,7 +105,6 @@ class Map extends Component {
             )}
           </MapView>
         }
-        {stations.length === 0 ? <Loading /> : null}
       </View>
     );
   }

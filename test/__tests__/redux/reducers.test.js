@@ -12,7 +12,7 @@ it('sets loading to true', () => {
 it('sets loading to false', () => {
   const state = reducer();
 
-  const loading = reducer(state, actions.loadingStarted());
+  const loading = reducer(state, actions.loadingFinished());
 
   expect(loading).toMatchSnapshot();
 });

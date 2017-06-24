@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displays loading message when loading 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "height": "100%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 20,
+        "bottom": 20,
+        "display": "flex",
+        "elevation": 5,
+        "justifyContent": "center",
+        "padding": 10,
+        "position": "absolute",
+        "width": "50%",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 30,
+        }
+      }
+    >
+      Loading...
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`returns nothing when nothing is loading 1`] = `null`;

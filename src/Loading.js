@@ -1,12 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
-const Loading = () =>
-  <View style={styles.loadingContainer}>
-    <View style={styles.loadingBox}>
-      <Text style={styles.loadingText}>Loading...</Text>
-    </View>
-  </View>;
+const mapStateToProps = state => ({
+  isLoading: state.isLoading,
+});
+
+const Loading = ({ isLoading }) =>
+  isLoading
+    ? <View style={styles.loadingContainer}>
+        <View style={styles.loadingBox}>
+          <Text style={styles.loadingText}>Loading...</Text>
+        </View>
+      </View>
+    : null;
 
 styles = StyleSheet.create({
   loadingBox: {
@@ -35,4 +42,4 @@ styles = StyleSheet.create({
   },
 });
 
-export default Loading;
+export default connect(mapStateToProps)(Loading);

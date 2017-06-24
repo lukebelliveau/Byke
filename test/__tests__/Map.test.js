@@ -74,7 +74,7 @@ jest.mock('react-native-maps', () => {
   }
 
   class MockMapView extends React.Component {
-    animateToRegion() {};
+    animateToRegion() {}
     render() {
       return React.createElement('MapView', this.props, this.props.children);
     }
