@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import api from '../../src/api';
 
-import EnterDestination from '../../src/EnterDestination';
+import EnterDestination from '../../src/SearchBar/SearchBar';
 
 const userSubmitted = jest.fn();
 

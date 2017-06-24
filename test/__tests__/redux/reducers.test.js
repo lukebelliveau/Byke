@@ -25,3 +25,12 @@ it('puts stations in state', () => {
 
   expect(withStations).toMatchSnapshot();
 });
+
+it('puts trip data into state', () => {
+  const trip = { currentLocation: 'cur', destination: 'des' };
+  const state = reducer();
+
+  const withTrip = reducer(state, actions.tripSet(trip));
+
+  expect(withTrip).toMatchSnapshot();
+});

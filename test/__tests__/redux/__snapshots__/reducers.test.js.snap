@@ -7,6 +7,18 @@ Object {
     "station1",
     "station2",
   ],
+  "trip": Object {},
+}
+`;
+
+exports[`puts trip data into state 1`] = `
+Object {
+  "isLoading": false,
+  "stations": Array [],
+  "trip": Object {
+    "currentLocation": "cur",
+    "destination": "des",
+  },
 }
 `;
 
@@ -14,6 +26,7 @@ exports[`sets loading to false 1`] = `
 Object {
   "isLoading": false,
   "stations": Array [],
+  "trip": Object {},
 }
 `;
 
@@ -21,5 +34,6 @@ exports[`sets loading to true 1`] = `
 Object {
   "isLoading": true,
   "stations": Array [],
+  "trip": Object {},
 }
 `;

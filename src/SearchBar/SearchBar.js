@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
+import api from '../api';
+
 const initialState = {
   enteredText: '',
 };
@@ -17,6 +19,21 @@ class EnterDestination extends Component {
     super(props);
     this.props = props;
   }
+  searchDestination = (searchQuery: string) => {
+    this.props.loadingStarted();
+    api
+      .searchPlaces(
+        searchQuery,
+        this.props.region.latitude,
+        this.props.region.longitude
+      )
+      .then(response =>
+        response.json().then(json => {
+          this.props.locationsFetched(json.results);
+          this.props.loadingFinished();
+        })
+      );
+  };
 
   textChanged = (text: string) => {
     this.setState({ enteredText: text });
@@ -31,7 +48,7 @@ class EnterDestination extends Component {
           placeholder="Where are you going?"
           placeholderTextColor="lightgray"
           onChangeText={this.textChanged}
-          onSubmitEditing={() => this.props.onSubmit(this.state.enteredText)}
+          onSubmitEditing={() => this.searchDestination(this.state.enteredText)}
           returnKeyType="go"
         />
       </View>

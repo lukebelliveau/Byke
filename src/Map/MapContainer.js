@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MapComponent from './Map';
 import actions from '../redux/actions';
@@ -13,10 +12,15 @@ const mapDispatchToProps = dispatch => ({
   stationsFetched: stations => {
     dispatch(actions.stationsFetched(stations));
   },
+  locationUpdated: location => {
+    dispatch(actions.locationUpdated(location));
+  },
 });
 
 const mapStateToProps = state => ({
   stations: state.stations,
+  trip: state.trip,
+  region: state.region,
 });
 
 const Map = connect(mapStateToProps, mapDispatchToProps)(MapComponent);

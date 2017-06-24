@@ -7,22 +7,32 @@ import {
   Text,
 } from 'react-native';
 
-const LocationList = ({ results, onSelect }) =>
-  <View
-    style={styles.container}
-    pointerEvents={results.length > 0 ? 'auto' : 'none'}
-  >
-    <ScrollView showsVerticalScrollIndicator={false}>
-      {results.map(result =>
-        <LocationCard
-          testId={`${result.name}Card`}
-          result={result}
-          key={result.id}
-          onSelect={onSelect}
-        />
-      )}
-    </ScrollView>
-  </View>;
+class LocationList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
+  render() {
+    return this.props.trip
+      ? null
+      : <View
+          style={styles.container}
+          pointerEvents={this.props.locations.length > 0 ? 'auto' : 'none'}
+        >
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {this.props.locations.map(result =>
+              <LocationCard
+                testId={`${result.name}Card`}
+                result={result}
+                key={result.id}
+                onSelect={this.props.tripSet}
+              />
+            )}
+          </ScrollView>
+        </View>;
+  }
+}
 
 const LocationCard = ({ result, onSelect }) =>
   <View style={styles.card} testId={result.name}>

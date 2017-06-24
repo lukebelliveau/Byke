@@ -5,6 +5,7 @@ import MapView from 'react-native-maps';
 
 import StationMarker from '../StationMarker';
 import api from '../api';
+import getLocation from '../geolocation';
 
 type Station = {
   latitude: number,
@@ -26,6 +27,17 @@ class Map extends Component {
 
     this.props = props;
     this.fetchStationInfo();
+    this.watchLocation();
+
+    getLocation(location => this.props.locationUpdated(location.coords));
+  }
+
+  watchLocation() {
+    navigator.geolocation.watchPosition(
+      location => this.props.locationUpdated(location.coords),
+      null,
+      {}
+    );
   }
 
   componentDidUpdate() {
