@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { Keyboard, View, AsyncStorage } from 'react-native';
 import MapView from 'react-native-maps';
 
-import StationMarker from './StationMarker';
-import api from './api';
-import Loading from './Loading';
+import StationMarker from '../StationMarker';
+import api from '../api';
+import Loading from '../Loading';
 
 type Station = {
   latitude: number,

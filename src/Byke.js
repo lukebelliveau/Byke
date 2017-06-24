@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import api from './api';
-import Map from './Map';
+import Map from './Map/MapContainer';
 import EnterDestination from './EnterDestination';
 import getLocation from './geolocation';
 

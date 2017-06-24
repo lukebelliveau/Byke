@@ -6,7 +6,7 @@ import { Keyboard } from 'react-native';
 import { createWaitForElement } from 'enzyme-wait';
 import toJson from 'enzyme-to-json';
 
-import Map from '../../src/Map';
+import Map from '../../src/Map/Map';
 import StationMarker from '../../src/StationMarker';
 import api from '../../src/api';
 

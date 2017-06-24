@@ -4,7 +4,7 @@ import { createWaitForElement } from 'enzyme-wait';
 
 import api from '../../src/api';
 import Byke from '../../src/Byke';
-import Map from '../../src/Map';
+import Map from '../../src/Map/MapContainer';
 
 api.searchPlaces = jest.fn(() => new Promise(resolve => resolve([])));
 
