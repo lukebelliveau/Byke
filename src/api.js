@@ -1,6 +1,8 @@
 // @flow
 export const url = 'http://byke-graphql.herokuapp.com/graphql?query=';
 
+const googleNearbyPlacesEndpoint =
+  'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 const googleMapsAPIKey = 'AIzaSyAQhawlRtPkYdpC4VHgaB1n3yLOVOEZbYE';
 
 const getAllStations = (stationParams: string) =>
@@ -14,7 +16,7 @@ const getAllStations = (stationParams: string) =>
 
 const searchPlaces = (searchQuery: string, latitude, longitude) =>
   fetch(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${googleMapsAPIKey}&location=${latitude},${longitude}&radius=10000&keyword=${searchQuery}`
+    `${googleNearbyPlacesEndpoint}?key=${googleMapsAPIKey}&location=${latitude},${longitude}&radius=10000&keyword=${searchQuery}`
   )
     .then(response => response)
     .catch(e => console.log(e));

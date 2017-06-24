@@ -50,7 +50,7 @@ const Button = ({ coordinates, onSelect }) =>
 
 const Info = ({ name, address }) =>
   <View style={{ flex: 1 }}>
-    <Text style={styles.title}>{name}</Text>
+    <Text style={styles.title} numberOfLines={2}>{name}</Text>
     <Text style={styles.address}>{address}</Text>
   </View>;
 

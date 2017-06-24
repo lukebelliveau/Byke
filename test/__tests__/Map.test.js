@@ -38,9 +38,7 @@ it('renders a trip with marker in location and destination', () => {
     currentLocation: { latitude: 99, longitude: 99 },
     destination: { latitude: 199, longitude: 199 },
   };
-  const map = renderer
-    .create(<Map region={region} trip={trip} />)
-    .toJSON();
+  const map = renderer.create(<Map region={region} trip={trip} />).toJSON();
 
   expect(map).toMatchSnapshot();
 });

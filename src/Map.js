@@ -5,6 +5,7 @@ import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
 import api from './api';
+import Loading from './Loading';
 
 type Station = {
   latitude: number,
@@ -71,33 +72,38 @@ class Map extends Component {
     const stations = this.state.stations;
 
     return (
-      <MapView
-        style={{ flex: 1 }}
-        region={region}
-        initialRegion={region}
-        onPress={Keyboard.dismiss}
-      >
-        {trip
-          ? <View>
-              <MapView.Marker
-                coordinate={trip.currentLocation}
-                pinColor="blue"
-              />
-              <MapView.Marker coordinate={trip.destination} />
-            </View>
-          : <MapView.Marker coordinate={region} />}
+      <View style={{ flex: 1 }}>
+        {
+          <MapView
+            style={{ flex: 1 }}
+            region={region}
+            initialRegion={region}
+            onPress={Keyboard.dismiss}
+          >
+            {trip
+              ? <View>
+                  <MapView.Marker
+                    coordinate={trip.currentLocation}
+                    pinColor="blue"
+                  />
+                  <MapView.Marker coordinate={trip.destination} />
+                </View>
+              : <MapView.Marker coordinate={region} />}
 
-        {stations.map((station, index) =>
-          <StationMarker
-            testId={station.stationName}
-            coordinate={station}
-            availableBikes={station.availableBikes}
-            key={index}
-          />
-        )}
-      </MapView>
+            {stations.map((station, index) =>
+              <StationMarker
+                testId={station.stationName}
+                stationName={station.stationName}
+                coordinate={station}
+                availableBikes={station.availableBikes}
+                key={index}
+              />
+            )}
+          </MapView>
+        }
+        {stations.length === 0 ? <Loading /> : null}
+      </View>
     );
   }
 }
-
 export default Map;
