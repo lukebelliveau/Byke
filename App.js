@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import Byke from './src/Byke';
-import reducers from './src/reducers';
+import reducers from './src/redux/reducers';
 
 let store = createStore(reducers);
 

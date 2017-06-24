@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sets loading to false 1`] = `
+Object {
+  "loading": true,
+}
+`;
+
+exports[`sets loading to true 1`] = `
+Object {
+  "loading": true,
+}
+`;
