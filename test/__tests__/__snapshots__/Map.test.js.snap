@@ -9,23 +9,7 @@ exports[`fetches stations and displays them 1`] = `
   }
 >
   <MockMapView
-    initialRegion={
-      Object {
-        "latitude": 1,
-        "latitudeDelta": 3,
-        "longitude": 2,
-        "longitudeDelta": 4,
-      }
-    }
     onPress={[Function]}
-    region={
-      Object {
-        "latitude": 1,
-        "latitudeDelta": 3,
-        "longitude": 2,
-        "longitudeDelta": 4,
-      }
-    }
     style={
       Object {
         "flex": 1,
@@ -56,23 +40,7 @@ exports[`renders a trip with marker in location and destination 1`] = `
   }
 >
   <MapView
-    initialRegion={
-      Object {
-        "latitude": 1,
-        "latitudeDelta": 3,
-        "longitude": 2,
-        "longitudeDelta": 4,
-      }
-    }
     onPress={[Function]}
-    region={
-      Object {
-        "latitude": 1,
-        "latitudeDelta": 3,
-        "longitude": 2,
-        "longitudeDelta": 4,
-      }
-    }
     style={
       Object {
         "flex": 1,

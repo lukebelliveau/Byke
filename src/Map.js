@@ -80,8 +80,6 @@ class Map extends Component {
         {
           <MapView
             style={{ flex: 1 }}
-            //region={region}
-            initialRegion={region}
             onPress={Keyboard.dismiss}
             ref={ref => {
               this.map = ref;

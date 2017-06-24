@@ -19,6 +19,10 @@ const region = {
 const stations = [
   { stationName: 'station1', availableBikes: 1, latitude: 50, longitude: 60 },
 ];
+const trip = {
+  currentLocation: { latitude: 99, longitude: 99 },
+  destination: { latitude: 199, longitude: 199 },
+};
 
 api.getAllStations = jest.fn(() => new Promise(resolve => resolve(stations)));
 
@@ -35,10 +39,6 @@ it('fetches stations and displays them', done => {
 });
 
 it('renders a trip with marker in location and destination', () => {
-  const trip = {
-    currentLocation: { latitude: 99, longitude: 99 },
-    destination: { latitude: 199, longitude: 199 },
-  };
   const map = renderer.create(<Map region={region} trip={trip} />).toJSON();
 
   expect(map).toMatchSnapshot();
