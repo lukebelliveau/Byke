@@ -7,52 +7,40 @@ import {
   Text,
 } from 'react-native';
 
-const LocationList = ({ results, onSelect }) => {
-  return (
-    <View
-      style={styles.container}
-      pointerEvents={results.length > 0 ? 'auto' : 'none'}
-    >
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {results.map(result =>
-          <LocationCard result={result} key={result.id} onSelect={onSelect} />
-        )}
-      </ScrollView>
-    </View>
-  );
-};
+const LocationList = ({ results, onSelect }) =>
+  <View
+    style={styles.container}
+    pointerEvents={results.length > 0 ? 'auto' : 'none'}
+  >
+    <ScrollView showsVerticalScrollIndicator={false}>
+      {results.map(result =>
+        <LocationCard result={result} key={result.id} onSelect={onSelect} />
+      )}
+    </ScrollView>
+  </View>;
 
-const LocationCard = ({ result, onSelect }) => {
-  return (
-    <View style={styles.card}>
-      <View style={styles.infoContainer}>
-        <Info name={result.name} address={result.vicinity} />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          onSelect={onSelect}
-          coordinates={{
-            latitude: result.geometry.location.lat,
-            longitude: result.geometry.location.lng,
-          }}
-        />
-      </View>
+const LocationCard = ({ result, onSelect }) =>
+  <View style={styles.card}>
+    <View style={styles.infoContainer}>
+      <Info name={result.name} address={result.vicinity} />
     </View>
-  );
-};
+    <View style={styles.buttonContainer}>
+      <Button
+        onSelect={onSelect}
+        coordinates={{
+          latitude: result.geometry.location.lat,
+          longitude: result.geometry.location.lng,
+        }}
+      />
+    </View>
+  </View>;
 
-const Button = ({ coordinates, onSelect }) => {
-  return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => onSelect(coordinates)}
-    >
-      <Text style={styles.buttonText}>
-        GO
-      </Text>
-    </TouchableOpacity>
-  );
-};
+const Button = ({ coordinates, onSelect }) =>
+  <TouchableOpacity style={styles.button} onPress={() => onSelect(coordinates)}>
+    <Text style={styles.buttonText}>
+      GO
+    </Text>
+  </TouchableOpacity>;
 
 const Info = ({ name, address }) =>
   <View style={{ flex: 1 }}>
