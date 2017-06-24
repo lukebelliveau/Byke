@@ -54,6 +54,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -168,6 +169,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -282,6 +284,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -396,6 +399,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -510,6 +514,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -624,6 +629,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -738,6 +744,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -852,6 +859,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -966,6 +974,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1080,6 +1089,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1194,6 +1204,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1308,6 +1319,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1422,6 +1434,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1536,6 +1549,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1650,6 +1664,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1764,6 +1779,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1878,6 +1894,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -1992,6 +2009,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -2106,6 +2124,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,
@@ -2220,6 +2239,7 @@ exports[`renders a ScrollView of location cards 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 25,

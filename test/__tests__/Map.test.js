@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import MapView from 'react-native-maps';
 import { shallow } from 'enzyme';
 import { Keyboard } from 'react-native';
 import { createWaitForElement } from 'enzyme-wait';
@@ -47,7 +48,7 @@ it('dismisses the keyboard when pressed', () => {
   Keyboard.dismiss = jest.fn();
   const map = shallow(<Map region={region} stations={stations} style={{}} />);
 
-  map.simulate('press');
+  map.find(MapView).simulate('press');
 
   expect(Keyboard.dismiss.mock.calls.length).toBeGreaterThan(0);
 });
