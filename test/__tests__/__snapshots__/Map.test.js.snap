@@ -19,7 +19,11 @@ exports[`renders with location marker and markers for stations 1`] = `
       "longitudeDelta": 4,
     }
   }
-  style={Object {}}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
   <Marker
     coordinate={

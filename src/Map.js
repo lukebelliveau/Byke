@@ -16,6 +16,7 @@ const Map = ({
   region,
   stations,
   style,
+  trip,
 }: {
   region: { number: string },
   stations: Array<Station>,
@@ -27,7 +28,8 @@ const Map = ({
     initialRegion={region}
     onPress={Keyboard.dismiss}
   >
-    <MapView.Marker coordinate={region} />
+    {trip ? null : <MapView.Marker coordinate={region} />}
+
     {stations.map((station, index) =>
       <StationMarker
         coordinate={station}

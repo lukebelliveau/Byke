@@ -8,6 +8,7 @@ import EnterDestination from './EnterDestination';
 import getLocation from './geolocation';
 
 import LocationList from './LocationList';
+import computeRegion from './utils';
 
 import testLocations from '../test/testLocations';
 
@@ -26,13 +27,24 @@ class Byke extends React.Component {
   }
 
   componentDidMount() {
-    this.updateLocation();
+    this.centerRegionOnUser();
 
     this.loadStations();
-    // setInterval(() => this.updateLocation(), 1000);
+    // setInterval(() => this.centerRegionOnUser(), 1000);
   }
 
-  updateLocation() {
+  destinationSelected = destination => {
+    getLocation(location => {
+      console.log('***');
+      console.log(destination);
+      this.setState({
+        region: computeRegion([destination, location.coords]),
+        results: [],
+      });
+    });
+  };
+
+  centerRegionOnUser() {
     getLocation(location => {
       this.setState(prevState => ({
         region: {
@@ -49,7 +61,6 @@ class Byke extends React.Component {
     const stations = AsyncStorage.getItem('@Byke:stations')
       .then(stations => {
         if (stations !== null) {
-          console.log('Loading stations from cache...');
           this.setState({
             stations: JSON.parse(stations),
           });
@@ -58,13 +69,11 @@ class Byke extends React.Component {
         }
       })
       .catch(e => {
-        console.log('error fetching stations!');
-        console.log(e);
+        Error('error fetching stations!' + e);
       });
   }
 
   fetchStationInfo = () => {
-    console.log('Fetching stations from web...');
     api
       .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
       .then(stations => {
@@ -104,7 +113,10 @@ class Byke extends React.Component {
           />
           <View style={styles.map}>
             <Map region={this.state.region} stations={this.state.stations} />
-            <LocationList results={this.state.results} />
+            <LocationList
+              results={this.state.results}
+              onSelect={this.destinationSelected}
+            />
           </View>
         </View>;
   }

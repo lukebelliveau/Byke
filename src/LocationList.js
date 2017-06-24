@@ -7,8 +7,7 @@ import {
   Text,
 } from 'react-native';
 
-const LocationList = ({ results }) => {
-  console.log(results);
+const LocationList = ({ results, onSelect }) => {
   return (
     <View
       style={styles.container}
@@ -16,29 +15,47 @@ const LocationList = ({ results }) => {
     >
       <ScrollView showsVerticalScrollIndicator={false}>
         {results.map(result =>
-          <LocationCard result={result} key={result.id} />
+          <LocationCard result={result} key={result.id} onSelect={onSelect} />
         )}
       </ScrollView>
     </View>
   );
 };
 
-const LocationCard = ({ result }) =>
-  <View style={styles.card}>
-    <View style={styles.infoContainer}>
-      <Info name={result.name} address={result.vicinity} />
+const LocationCard = ({ result, onSelect }) => {
+  console.log(result);
+  return (
+    <View style={styles.card}>
+      <View style={styles.infoContainer}>
+        <Info name={result.name} address={result.vicinity} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          onSelect={onSelect}
+          coordinates={{
+            latitude: result.geometry.location.lat,
+            longitude: result.geometry.location.lng,
+          }}
+        />
+      </View>
     </View>
-    <View style={styles.buttonContainer}>
-      <Button />
-    </View>
-  </View>;
+  );
+};
 
-const Button = ({ onPress }) =>
-  <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Text style={styles.buttonText}>
-      GO
-    </Text>
-  </TouchableOpacity>;
+const Button = ({ coordinates, onSelect }) => {
+  console.log('BUTTON');
+  console.log(coordinates);
+  return (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => onSelect(coordinates)}
+    >
+      <Text style={styles.buttonText}>
+        GO
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
 const Info = ({ name, address }) =>
   <View style={{ flex: 1 }}>
