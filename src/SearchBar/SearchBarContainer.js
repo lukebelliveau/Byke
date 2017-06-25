@@ -13,6 +13,9 @@ const mapDispatchToProps = dispatch => ({
   loadingFinished: () => {
     dispatch(actions.loadingFinished());
   },
+  searchLocations: query => {
+    dispatch(actions.searchLocations(query));
+  },
 });
 
 const mapStateToProps = state => ({

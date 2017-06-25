@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
-import api from '../api';
-
 const initialState = {
   enteredText: '',
 };
@@ -20,19 +18,10 @@ class EnterDestination extends Component {
     this.props = props;
   }
   searchDestination = (searchQuery: string) => {
+    console.log('in searchbar');
     this.props.loadingStarted();
-    api
-      .searchPlaces(
-        searchQuery,
-        this.props.region.latitude,
-        this.props.region.longitude
-      )
-      .then(response =>
-        response.json().then(json => {
-          this.props.locationsFetched(json.results);
-          this.props.loadingFinished();
-        })
-      );
+
+    this.props.searchLocations(searchQuery);
   };
 
   textChanged = (text: string) => {

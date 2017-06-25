@@ -14,12 +14,13 @@ const getAllStations = (stationParams: string) =>
     })
     .catch(e => console.log(e));
 
-const searchPlaces = (searchQuery: string, latitude, longitude) =>
-  fetch(
+const searchPlaces = (searchQuery: string, latitude, longitude) => {
+  return fetch(
     `${googleNearbyPlacesEndpoint}?key=${googleMapsAPIKey}&location=${latitude},${longitude}&radius=10000&keyword=${searchQuery}`
   )
-    .then(response => response)
+    .then(response => response.json())
     .catch(e => console.log(e));
+};
 
 export default {
   getAllStations,

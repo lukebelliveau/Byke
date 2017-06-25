@@ -1,18 +1,26 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
-import Api from '...'
+import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects';
+import api from '../api';
+import actions, { types } from './actions';
+import selectors from './selectors';
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
-function* fetchUser(action) {
+function* fetchLocations(action) {
+  const latitude = yield select(selectors.getLatitude);
+  const longitude = yield select(selectors.getLongitude);
   try {
-    const user = yield call(Api.fetchUser, action.payload.userId);
-    yield put({type: "USER_FETCH_SUCCEEDED", user: user});
+    const locations = yield call(
+      api.searchPlaces,
+      action.payload,
+      latitude,
+      longitude
+    );
+    yield put(actions.locationsFetched(locations.results));
   } catch (e) {
-    yield put({type: "USER_FETCH_FAILED", message: e.message});
+    yield put({ type: 'USER_FETCH_FAILED', message: e.message });
   }
 }
 
 function* searchLocationSaga() {
-  yield takeLatest("USER_FETCH_REQUESTED", fetchUser);
+  yield takeLatest('SEARCH_LOCATIONS', fetchLocations);
 }
 
 export default searchLocationSaga;

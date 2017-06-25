@@ -30,9 +30,12 @@ const reducer = (state = initialState, action = {}) => {
         stations: { $set: action.payload },
       });
     case types.LOCATIONS_FETCHED:
+      console.log('LOCATIONS FETCHED');
+      console.log(action.payload);
       return update(state, {
         locations: { $set: action.payload },
         trip: { $set: null },
+        loading: { $set: false },
       });
     case types.TRIP_SET:
       const region = computeRegion([action.payload, state.region]);
