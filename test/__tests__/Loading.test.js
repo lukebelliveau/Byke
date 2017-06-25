@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import Loading from '../../src/Loading';
+import Loading from '../../src/components/shared/Loading';
 import reducers from '../../src/redux/reducers';
 import actions from '../../src/redux/actions';
 

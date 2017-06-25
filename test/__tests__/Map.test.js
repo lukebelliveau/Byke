@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import renderer from 'react-test-renderer';
 
-import Map from '../../src/Map/MapContainer';
+import Map from '../../src/components/Map/MapContainer';
 import api from '../../src/api';
 import connectToRedux from '../connectToRedux';
 import reducers from '../../src/redux/reducers';

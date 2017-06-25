@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import Map from './Map/MapContainer';
 import SearchBar from './SearchBar/SearchBarContainer';
 import LocationList from './SearchBar/LocationListContainer';
-import Loading from './Loading';
+import Loading from './shared/Loading';
 
 class Byke extends React.Component {
   constructor() {

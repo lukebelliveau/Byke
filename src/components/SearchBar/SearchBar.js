@@ -17,12 +17,6 @@ class EnterDestination extends Component {
     super(props);
     this.props = props;
   }
-  searchDestination = (searchQuery: string) => {
-    console.log('in searchbar');
-    this.props.loadingStarted();
-
-    this.props.searchLocations(searchQuery);
-  };
 
   textChanged = (text: string) => {
     this.setState({ enteredText: text });
@@ -37,7 +31,7 @@ class EnterDestination extends Component {
           placeholder="Where are you going?"
           placeholderTextColor="lightgray"
           onChangeText={this.textChanged}
-          onSubmitEditing={() => this.searchDestination(this.state.enteredText)}
+          onSubmitEditing={() => this.props.searchLocations(this.state.enteredText)}
           returnKeyType="go"
         />
       </View>

@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock';
 import { mockServer } from 'graphql-tools';
-import schema from '../src/divvySchema';
+import schema from './divvySchema';
 
 const fetchGQL = (serverURL, schema, mocks) => {
   const server = mockServer(schema, mocks);

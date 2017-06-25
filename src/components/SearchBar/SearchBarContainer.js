@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
-import actions from '../redux/actions';
+import actions from '../../redux/actions';
 
 const mapDispatchToProps = dispatch => ({
   locationsFetched: locations => {

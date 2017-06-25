@@ -4,14 +4,13 @@ import actions, { types } from './actions';
 import selectors from './selectors';
 
 function* fetchLocations(action) {
-  const latitude = yield select(selectors.getLatitude);
-  const longitude = yield select(selectors.getLongitude);
+  const coordinates = yield select(selectors.getCoordinates);
   try {
     const locations = yield call(
       api.searchPlaces,
       action.payload,
-      latitude,
-      longitude
+      coordinates.latitude,
+      coordinates.longitude,
     );
     yield put(actions.locationsFetched(locations.results));
   } catch (e) {

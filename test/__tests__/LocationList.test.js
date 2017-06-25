@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-import LocationList from '../../src/SearchBar/LocationList';
+import LocationList from '../../src/components/SearchBar/LocationList';
 import testLocations from '../testLocations';
 
 it('renders a ScrollView of location cards', () => {

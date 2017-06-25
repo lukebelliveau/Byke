@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import { createWaitForElement } from 'enzyme-wait';
 
 import api from '../../src/api';
-import Byke from '../../src/Byke';
+import Byke from '../../src/components/Byke';
 import connectToRedux from '../connectToRedux';
 import reducers from '../../src/redux/reducers';
 

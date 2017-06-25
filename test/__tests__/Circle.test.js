@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Circle from '../../src/Circle';
+import Circle from '../../src/components/shared/Circle';
 
 describe('Marker', () => {
   it('should be green', () => {

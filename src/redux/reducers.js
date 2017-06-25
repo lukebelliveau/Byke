@@ -28,14 +28,17 @@ const reducer = (state = initialState, action = {}) => {
     case types.STATIONS_FETCHED:
       return update(state, {
         stations: { $set: action.payload },
+        isLoading: { $set: false }
       });
+    case types.SEARCH_LOCATIONS:
+      return update(state, {
+        isLoading: { $set: true }
+      })
     case types.LOCATIONS_FETCHED:
-      console.log('LOCATIONS FETCHED');
-      console.log(action.payload);
       return update(state, {
         locations: { $set: action.payload },
         trip: { $set: null },
-        loading: { $set: false },
+        isLoading: { $set: false },
       });
     case types.TRIP_SET:
       const region = computeRegion([action.payload, state.region]);
