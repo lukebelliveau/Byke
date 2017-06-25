@@ -5,7 +5,13 @@ export const types = {
   LOCATIONS_FETCHED: 'LOCATIONS_FETCHED',
   TRIP_SET: 'TRIP_SET',
   LOCATION_UPDATED: 'LOCATION_UPDATED',
+  SEARCH_LOCATIONS: 'SEARCH_LOCATIONS',
 };
+
+const searchLocations = searchQuery => ({
+  type: types.SEARCH_LOCATIONS,
+  payload: searchQuery,
+});
 
 const loadingStarted = () => ({
   type: types.LOADING_STARTED,
@@ -42,4 +48,5 @@ export default {
   locationsFetched,
   tripSet,
   locationUpdated,
+  searchLocations,
 };

@@ -1,0 +1,1 @@
+import searchLocationSaga from './searchLocationSaga.test';
