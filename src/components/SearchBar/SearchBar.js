@@ -2,45 +2,23 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
-const initialState = {
-  enteredText: '',
-};
-
-type Props = {
-  style: Object,
-  onSubmit: string => void,
-};
-
-class EnterDestination extends Component {
-  state = initialState;
-  constructor(props: Props) {
-    super(props);
-    this.props = props;
-  }
-
-  textChanged = (text: string) => {
-    this.setState({ enteredText: text });
-  };
-
-  render() {
-    return (
-      <View style={[this.props.style, styles.container]}>
-        <TextInput
-          style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="Where are you going?"
-          placeholderTextColor="lightgray"
-          onChangeText={this.textChanged}
-          onSubmitEditing={() => this.props.searchLocations(this.state.enteredText)}
-          returnKeyType="go"
-        />
-      </View>
-    );
-  }
-}
+const SearchBar = ({ searchText, changeSearchText, searchLocations }) =>
+  <View style={[styles.container]}>
+    <TextInput
+      style={styles.input}
+      underlineColorAndroid="transparent"
+      placeholder="Where are you going?"
+      placeholderTextColor="lightgray"
+      value={searchText}
+      onChangeText={changeSearchText}
+      onSubmitEditing={() => searchLocations(searchText)}
+      returnKeyType="go"
+    />
+  </View>;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: 'dodgerblue',
     flexDirection: 'column-reverse',
     alignItems: 'center',
@@ -63,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EnterDestination;
+export default SearchBar;

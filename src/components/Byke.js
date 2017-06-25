@@ -15,7 +15,7 @@ class Byke extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <SearchBar style={styles.destination} />
+        <SearchBar />
         <View style={styles.map}>
           <Map />
           <LocationList />
@@ -28,9 +28,6 @@ class Byke extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  destination: {
     flex: 1,
   },
   map: {

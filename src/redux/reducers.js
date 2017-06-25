@@ -1,6 +1,6 @@
 import update from 'immutability-helper';
 import { types } from './actions';
-import computeRegion from '../utils';
+import computeRegion from '../computeRegion';
 
 const initialState = {
   isLoading: false,
@@ -13,6 +13,7 @@ const initialState = {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   },
+  searchText: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -28,12 +29,12 @@ const reducer = (state = initialState, action = {}) => {
     case types.STATIONS_FETCHED:
       return update(state, {
         stations: { $set: action.payload },
-        isLoading: { $set: false }
+        isLoading: { $set: false },
       });
     case types.SEARCH_LOCATIONS:
       return update(state, {
-        isLoading: { $set: true }
-      })
+        isLoading: { $set: true },
+      });
     case types.LOCATIONS_FETCHED:
       return update(state, {
         locations: { $set: action.payload },
@@ -58,6 +59,10 @@ const reducer = (state = initialState, action = {}) => {
           latitude: { $set: action.payload.latitude },
           longitude: { $set: action.payload.longitude },
         },
+      });
+    case types.CHANGE_SEARCH_TEXT:
+      return update(state, {
+        searchText: { $set: action.payload },
       });
     default:
       return state;

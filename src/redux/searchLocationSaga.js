@@ -10,7 +10,7 @@ function* fetchLocations(action) {
       api.searchPlaces,
       action.payload,
       coordinates.latitude,
-      coordinates.longitude,
+      coordinates.longitude
     );
     yield put(actions.locationsFetched(locations.results));
   } catch (e) {

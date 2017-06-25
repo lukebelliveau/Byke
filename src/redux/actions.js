@@ -6,6 +6,7 @@ export const types = {
   TRIP_SET: 'TRIP_SET',
   LOCATION_UPDATED: 'LOCATION_UPDATED',
   SEARCH_LOCATIONS: 'SEARCH_LOCATIONS',
+  CHANGE_SEARCH_TEXT: 'CHANGE_SEARCH_TEXT',
 };
 
 const searchLocations = searchQuery => ({
@@ -41,6 +42,11 @@ const locationUpdated = location => ({
   payload: location,
 });
 
+const changeSearchText = text => ({
+  type: types.CHANGE_SEARCH_TEXT,
+  payload: text,
+});
+
 export default {
   loadingStarted,
   loadingFinished,
@@ -49,4 +55,5 @@ export default {
   tripSet,
   locationUpdated,
   searchLocations,
+  changeSearchText,
 };

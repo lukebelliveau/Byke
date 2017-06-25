@@ -16,10 +16,14 @@ const mapDispatchToProps = dispatch => ({
   searchLocations: query => {
     dispatch(actions.searchLocations(query));
   },
+  changeSearchText: text => {
+    dispatch(actions.changeSearchText(text));
+  },
 });
 
 const mapStateToProps = state => ({
   region: state.region,
+  searchText: state.searchText,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

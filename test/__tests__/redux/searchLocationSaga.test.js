@@ -9,7 +9,7 @@ import selectors from '../../../src/redux/selectors';
 
 let state = reducer();
 console.log(state);
-state = reducer(state, actions.locationUpdated({latitude: 0, longitude: 0}));
+state = reducer(state, actions.locationUpdated({ latitude: 0, longitude: 0 }));
 
 let sagaTester;
 
@@ -18,7 +18,7 @@ beforeEach(() => {
   sagaTester.start(searchLocationSaga);
 });
 
-api.searchPlaces = jest.fn(() => ({results: locations}))
+api.searchPlaces = jest.fn(() => ({ results: locations }));
 
 selectors.getLatitude = jest.fn();
 selectors.getLongitude = jest.fn();
@@ -28,5 +28,7 @@ it('sets locations on success', async () => {
 
   await sagaTester.waitFor(types.LOCATIONS_FETCHED);
 
-  expect(sagaTester.getLastActionCalled()).toEqual(actions.locationsFetched(locations.results));
+  expect(sagaTester.getLastActionCalled()).toEqual(
+    actions.locationsFetched(locations.results)
+  );
 });
