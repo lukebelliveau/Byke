@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import Byke from './src/components/Byke';
 import reducers from './src/redux/reducers';
-import searchLocationSaga from './src/redux/searchLocationSaga';
+import searchLocationSaga from './src/redux/searchPlacesSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore(reducers, applyMiddleware(sagaMiddleware));

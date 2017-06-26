@@ -21,7 +21,7 @@ const initialState = {
   isLoading: false,
   stations: [],
   trip: null,
-  locations: [],
+  places: [],
   region: {
     latitude: 0,
     longitude: 0,
@@ -49,13 +49,13 @@ const reducer = (
         stations: { $set: action.payload },
         isLoading: { $set: false },
       });
-    case types.SEARCH_LOCATIONS:
+    case types.SEARCH_PLACES:
       return update(state, {
         isLoading: { $set: true },
       });
-    case types.LOCATIONS_FETCHED:
+    case types.PLACES_FETCHED:
       return update(state, {
-        locations: { $set: action.payload },
+        places: { $set: action.payload },
         trip: { $set: null },
         isLoading: { $set: false },
       });

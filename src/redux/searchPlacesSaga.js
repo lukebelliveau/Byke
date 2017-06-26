@@ -4,23 +4,23 @@ import api from '../api';
 import actions, { types } from './actions';
 import selectors from './selectors';
 
-function* fetchLocations(action) {
+function* fetchPlaces(action) {
   const coordinates = yield select(selectors.getCoordinates);
   try {
-    const locations = yield call(
+    const places = yield call(
       api.searchPlaces,
       action.payload,
       coordinates.latitude,
       coordinates.longitude
     );
-    yield put(actions.locationsFetched(locations.results));
+    yield put(actions.placesFetched(places.results));
   } catch (e) {
     yield put({ type: 'USER_FETCH_FAILED', message: e.message });
   }
 }
 
-function* searchLocationSaga(): Generator<*, *, *> {
-  yield takeLatest('SEARCH_LOCATIONS', fetchLocations);
+function* searchPlacesSaga(): Generator<*, *, *> {
+  yield takeLatest(types.SEARCH_PLACES, fetchPlaces);
 }
 
-export default searchLocationSaga;
+export default searchPlacesSaga;

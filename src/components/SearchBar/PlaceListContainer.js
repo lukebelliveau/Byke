@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import LocationList from './LocationList';
+import PlaceList from './PlaceList';
 import actions from '../../redux/actions';
 
 const mapDispatchToProps = dispatch => ({
@@ -11,8 +11,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  locations: state.locations,
+  places: state.places,
   trip: state.trip,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LocationList);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceList);

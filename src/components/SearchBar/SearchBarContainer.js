@@ -5,8 +5,8 @@ import SearchBar from './SearchBar';
 import actions from '../../redux/actions';
 
 const mapDispatchToProps = dispatch => ({
-  locationsFetched: locations => {
-    dispatch(actions.locationsFetched(locations));
+  placesFetched: places => {
+    dispatch(actions.placesFetched(places));
   },
   loadingStarted: () => {
     dispatch(actions.loadingStarted());
@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => ({
   loadingFinished: () => {
     dispatch(actions.loadingFinished());
   },
-  searchLocations: query => {
-    dispatch(actions.searchLocations(query));
+  searchPlaces: query => {
+    dispatch(actions.searchPlaces(query));
   },
   changeSearchText: text => {
     dispatch(actions.changeSearchText(text));

@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 
 import Map from './Map/MapContainer';
 import SearchBar from './SearchBar/SearchBarContainer';
-import LocationList from './SearchBar/LocationListContainer';
+import PlaceList from './SearchBar/PlaceListContainer';
 import Loading from './shared/Loading';
 
 class Byke extends React.Component {
@@ -18,7 +18,7 @@ class Byke extends React.Component {
         <SearchBar />
         <View style={styles.map}>
           <Map />
-          <LocationList />
+          <PlaceList />
           <Loading />
         </View>
       </View>

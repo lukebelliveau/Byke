@@ -26,7 +26,7 @@ export type State = {
   isLoading: boolean,
   stations: Array<Object>,
   trip: ?Trip,
-  locations: Array<Place>,
+  places: Array<Place>,
   region: Region,
   searchText: string,
 };

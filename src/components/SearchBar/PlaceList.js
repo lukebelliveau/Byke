@@ -13,9 +13,9 @@ import type { Trip, Location, Place } from '../../Types';
 type Props = {
   trip: Trip,
   tripSet: Location => void,
-  locations: Array<Place>,
+  places: Array<Place>,
 };
-class LocationList extends React.Component {
+class PlaceList extends React.Component {
   constructor(props: Props) {
     super(props);
     this.props = props;
@@ -26,11 +26,11 @@ class LocationList extends React.Component {
       ? null
       : <View
           style={styles.container}
-          pointerEvents={this.props.locations.length > 0 ? 'auto' : 'none'}
+          pointerEvents={this.props.places.length > 0 ? 'auto' : 'none'}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
-            {this.props.locations.map(result =>
-              <LocationCard
+            {this.props.places.map(result =>
+              <PlaceCard
                 testId={`${result.name}Card`}
                 result={result}
                 key={result.id}
@@ -42,7 +42,7 @@ class LocationList extends React.Component {
   }
 }
 
-const LocationCard = ({ result, onSelect }) =>
+const PlaceCard = ({ result, onSelect }) =>
   <View style={styles.card} testId={result.name}>
     <View style={styles.infoContainer}>
       <Info name={result.name} address={result.vicinity} />
@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LocationList;
+export default PlaceList;

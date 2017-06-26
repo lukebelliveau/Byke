@@ -5,13 +5,13 @@ import { View, TextInput, StyleSheet, Platform } from 'react-native';
 type PropTypes = {
   searchText: string,
   changeSearchText: string => void,
-  searchLocations: string => void,
+  searchPlaces: string => void,
 };
 
 const SearchBar = ({
   searchText,
   changeSearchText,
-  searchLocations,
+  searchPlaces,
 }: PropTypes) =>
   <View style={[styles.container]}>
     <TextInput
@@ -21,7 +21,7 @@ const SearchBar = ({
       placeholderTextColor="lightgray"
       value={searchText}
       onChangeText={changeSearchText}
-      onSubmitEditing={() => searchLocations(searchText)}
+      onSubmitEditing={() => searchPlaces(searchText)}
       returnKeyType="go"
     />
   </View>;

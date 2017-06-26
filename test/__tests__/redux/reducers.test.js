@@ -28,7 +28,7 @@ test('STATIONS_FETCHED puts stations in state', () => {
   expect(withStations).toMatchSnapshot();
 });
 
-test('LOCATIONS_FETCHED puts locations in state', () => {
+test('PLACES_FETCHED puts locations in state', () => {
   const locations = testLocations.results;
   const initialState = reducer();
 
