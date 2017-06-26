@@ -30,4 +30,3 @@ export type State = {
   region: Region,
   searchText: string,
 };
-

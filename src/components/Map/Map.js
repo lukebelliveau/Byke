@@ -17,6 +17,16 @@ type Props = {
   stationsFetched: (Array<Station>) => void,
 };
 
+const positionError = error => {
+  throw Error(error.message);
+};
+
+const positionOptions = {
+  timeout: Number.POSITIVE_INFINITY,
+  maximumAge: 0,
+  enableHighAccuracy: false,
+};
+
 class Map extends Component {
   map: {
     animateToRegion: Region => void,
@@ -30,9 +40,13 @@ class Map extends Component {
   }
 
   watchLocation() {
-    navigator.geolocation.watchPosition(location => {
-      this.props.locationUpdated(location.coords), null, {};
-    }, null, {});
+    navigator.geolocation.watchPosition(
+      location => {
+        this.props.locationUpdated(location.coords), null, {};
+      },
+      positionError,
+      positionOptions
+    );
   }
 
   componentDidUpdate() {

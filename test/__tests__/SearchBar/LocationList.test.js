@@ -1,16 +1,16 @@
 import React from 'react';
 import { createStore } from 'redux';
 
-import connectToRedux, { shallowRenderWithEnzyme } from '../../connectToRedux';
+import connectToRedux from '../../connectToRedux';
 import reducers from '../../../src/redux/reducers';
 import actions from '../../../src/redux/actions';
-import LocationList from '../../../src/components/SearchBar/LocationListContainer';
+import PlaceList from '../../../src/components/SearchBar/PlaceListContainer';
 import testLocations from '../../testLocations';
 
 it('renders a ScrollView of location cards', () => {
   const store = createStore(reducers);
-  store.dispatch(actions.locationsFetched(testLocations.results));
-  const locations = connectToRedux(<LocationList />, store);
+  store.dispatch(actions.placesFetched(testLocations.results));
+  const locations = connectToRedux(<PlaceList />, store);
 
   expect(locations).toMatchSnapshot();
 });

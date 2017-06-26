@@ -1,6 +1,6 @@
 import reducer from '../../../src/redux/reducers';
 import actions from '../../../src/redux/actions';
-import testLocations from '../../testLocations';
+import testPlaces from '../../testLocations';
 
 test('LOADING_STARTED sets loading to true', () => {
   const state = reducer();
@@ -28,14 +28,11 @@ test('STATIONS_FETCHED puts stations in state', () => {
   expect(withStations).toMatchSnapshot();
 });
 
-test('PLACES_FETCHED puts locations in state', () => {
-  const locations = testLocations.results;
+test('PLACES_FETCHED puts places in state', () => {
+  const places = testPlaces.results;
   const initialState = reducer();
 
-  const withLocations = reducer(
-    initialState,
-    actions.locationsFetched(locations)
-  );
+  const withLocations = reducer(initialState, actions.placesFetched(places));
 
   expect(withLocations).toMatchSnapshot();
 });

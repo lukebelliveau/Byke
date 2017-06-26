@@ -8,11 +8,7 @@ type PropTypes = {
   searchPlaces: string => void,
 };
 
-const SearchBar = ({
-  searchText,
-  changeSearchText,
-  searchPlaces,
-}: PropTypes) =>
+const SearchBar = ({ searchText, changeSearchText, searchPlaces }: PropTypes) =>
   <View style={[styles.container]}>
     <TextInput
       style={styles.input}
