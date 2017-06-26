@@ -1,7 +1,5 @@
 import React from 'react';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
 
 import Map from '../../src/components/Map/MapContainer';
 import api from '../../src/api';
@@ -9,12 +7,6 @@ import connectToRedux from '../connectToRedux';
 import reducers from '../../src/redux/reducers';
 import actions from '../../src/redux/actions';
 
-const region = {
-  latitude: 1,
-  longitude: 2,
-  latitudeDelta: 3,
-  longitudeDelta: 4,
-};
 const stations = [
   { stationName: 'station1', availableBikes: 1, latitude: 50, longitude: 60 },
 ];
@@ -28,7 +20,7 @@ api.getAllStations = jest.fn(() => new Promise(resolve => resolve(stations)));
 it('displays stations from state', () => {
   const store = createStore(reducers);
   store.dispatch(actions.stationsFetched(stations));
-  const map = connectToRedux(<Provider store={store}><Map /></Provider>, store);
+  const map = connectToRedux(<Map />, store);
 
   expect(map).toMatchSnapshot();
 });

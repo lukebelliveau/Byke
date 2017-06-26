@@ -2,14 +2,13 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import api from '../../src/api';
 
-import EnterDestination from '../../src/components/SearchBar/SearchBar';
+import SearchBar from '../../../src/components/SearchBar/SearchBar';
 
 const userSubmitted = jest.fn();
 
 it('should render', () => {
-  const input = renderer.create(<EnterDestination onSubmit={userSubmitted} />);
+  const input = renderer.create(<SearchBar onSubmit={userSubmitted} />);
 
   expect(input).toMatchSnapshot();
 });
@@ -17,10 +16,9 @@ it('should render', () => {
 it('calls userSubmitted callback when user presses submit', () => {
   const userSubmitted = jest.fn();
   const entryString = 'DisneyWorld';
-  const input = shallow(<EnterDestination onSubmit={userSubmitted} />).find(
+  const input = shallow(<SearchBar searchText={entryString} searchLocations={userSubmitted} />).find(
     TextInput
   );
-  input.simulate('changeText', entryString);
 
   input.simulate('submitEditing');
 
