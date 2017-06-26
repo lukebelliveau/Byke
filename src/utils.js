@@ -1,5 +1,5 @@
 // @flow
-import { Location } from './Types';
+import { Location, Station } from './Types';
 
 const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   let top = -100;
@@ -27,7 +27,7 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   };
 };
 
-const findClosestStation = (currentLocation, stations) => {
+const findClosestStation = (currentLocation: Location, stations: Array<Station>) => {
   let closestFound = {
     station: null,
     distance: Number.POSITIVE_INFINITY,
