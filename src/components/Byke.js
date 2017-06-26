@@ -6,6 +6,7 @@ import Map from './Map/MapContainer';
 import SearchBar from './SearchBar/SearchBarContainer';
 import PlaceList from './SearchBar/PlaceListContainer';
 import Loading from './shared/Loading';
+import TripLauncher from './TripLauncher/TripLauncher';
 
 class Byke extends React.Component {
   constructor() {
@@ -20,6 +21,7 @@ class Byke extends React.Component {
           <Map />
           <PlaceList />
           <Loading />
+          <TripLauncher />
         </View>
       </View>
     );
