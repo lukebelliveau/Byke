@@ -27,4 +27,30 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   };
 };
 
-export default computeRegionThatFitsAllPoints;
+const findClosestStation = (currentLocation, stations) => {
+  console.log('IN FUNCTION');
+  let closestFound = {
+    station: null,
+    distance: Number.POSITIVE_INFINITY,
+  };
+
+  stations.forEach((station, index) => {
+    const lateralDistance = Math.abs(
+      currentLocation.latitude - station.latitude
+    );
+    const longitudalDistance = Math.abs(
+      currentLocation.longitude - station.longitude
+    );
+    const distance = lateralDistance + longitudalDistance / 2;
+
+    if (distance < closestFound.distance)
+      closestFound = { station: station.id, index: index, distance: distance };
+  });
+
+  return closestFound.station;
+};
+
+export default {
+  computeRegionThatFitsAllPoints,
+  findClosestStation,
+};

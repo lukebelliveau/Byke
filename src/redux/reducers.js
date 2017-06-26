@@ -2,7 +2,7 @@
 import update from 'immutability-helper';
 
 import { types } from './actions';
-import computeRegion from '../computeRegion';
+import utils from '../utils';
 import { Region, Location, Trip, State } from '../Types';
 
 type Place = {
@@ -60,7 +60,7 @@ const reducer = (
         isLoading: { $set: false },
       });
     case types.TRIP_SET:
-      const region = computeRegion([action.payload, state.region]);
+      const region = utils.computeRegionThatFitsAllPoints([action.payload, state.region]);
       return update(state, {
         trip: {
           $set: {
