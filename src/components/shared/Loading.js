@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
@@ -15,7 +16,7 @@ const Loading = ({ isLoading }) =>
       </View>
     : null;
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   loadingBox: {
     position: 'absolute',
     bottom: 20,

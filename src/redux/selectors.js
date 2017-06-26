@@ -1,8 +1,10 @@
-const getLatitude = state => {
+// @flow
+import { State } from '../Types';
+const getLatitude = (state: State) => {
   state.region.latitude;
 };
-const getLongitude = state => state.region.longitude;
-const getCoordinates = state => ({
+const getLongitude = (state: State) => state.region.longitude;
+const getCoordinates = (state: State) => ({
   latitude: getLatitude(state),
   longitude: getLongitude(state),
 });

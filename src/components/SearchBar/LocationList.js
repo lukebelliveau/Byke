@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {
   StyleSheet,
@@ -7,8 +8,15 @@ import {
   Text,
 } from 'react-native';
 
+import { Trip, Location, Place } from '../../Types';
+
+type Props = {
+  trip: Trip,
+  tripSet: Location => void,
+  locations: Array<Place>,
+};
 class LocationList extends React.Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.props = props;
   }

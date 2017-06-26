@@ -1,3 +1,5 @@
+// @flow
+import { Location, Trip, Place, Station } from '../Types';
 export const types = {
   LOADING_FINISHED: 'LOADING_FINISHED',
   LOADING_STARTED: 'LOADING_STARTED',
@@ -9,7 +11,7 @@ export const types = {
   CHANGE_SEARCH_TEXT: 'CHANGE_SEARCH_TEXT',
 };
 
-const searchLocations = searchQuery => ({
+const searchLocations = (searchQuery: string) => ({
   type: types.SEARCH_LOCATIONS,
   payload: searchQuery,
 });
@@ -22,27 +24,27 @@ const loadingFinished = () => ({
   type: types.LOADING_FINISHED,
 });
 
-const stationsFetched = stations => ({
+const stationsFetched = (stations: Array<Station>) => ({
   type: types.STATIONS_FETCHED,
   payload: stations,
 });
 
-const locationsFetched = locations => ({
+const locationsFetched = (locations: Array<Place>) => ({
   type: types.LOCATIONS_FETCHED,
   payload: locations,
 });
 
-const tripSet = trip => ({
+const tripSet = (trip: Location) => ({
   type: types.TRIP_SET,
   payload: trip,
 });
 
-const locationUpdated = location => ({
+const locationUpdated = (location: Location) => ({
   type: types.LOCATION_UPDATED,
   payload: location,
 });
 
-const changeSearchText = text => ({
+const changeSearchText = (text: string) => ({
   type: types.CHANGE_SEARCH_TEXT,
   payload: text,
 });

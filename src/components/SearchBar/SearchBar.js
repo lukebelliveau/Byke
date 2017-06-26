@@ -2,7 +2,17 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Platform } from 'react-native';
 
-const SearchBar = ({ searchText, changeSearchText, searchLocations }) =>
+type PropTypes = {
+  searchText: string,
+  changeSearchText: string => void,
+  searchLocations: string => void,
+};
+
+const SearchBar = ({
+  searchText,
+  changeSearchText,
+  searchLocations,
+}: PropTypes) =>
   <View style={[styles.container]}>
     <TextInput
       style={styles.input}

@@ -1,4 +1,7 @@
-const computeRegionThatFitsAllPoints = landmarks => {
+// @flow
+import { Location } from './Types';
+
+const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   let top = -100;
   let bottom = 100;
   let left = 100;

@@ -1,7 +1,21 @@
 // @flow
 import update from 'immutability-helper';
+
 import { types } from './actions';
 import computeRegion from '../computeRegion';
+import { Region, Location, Trip, State } from '../Types';
+
+type Place = {
+  id: number,
+  name: string,
+  vicinity: string,
+  geometry: {
+    location: {
+      lat: number,
+      lng: number,
+    },
+  },
+};
 
 const initialState = {
   isLoading: false,
@@ -17,7 +31,10 @@ const initialState = {
   searchText: '',
 };
 
-const reducer = (state = initialState, action = {}) => {
+const reducer = (
+  state: State = initialState,
+  action: { type: string, payload: Object } = { type: 'invalid', payload: {} }
+) => {
   switch (action.type) {
     case types.LOADING_STARTED:
       return update(state, {

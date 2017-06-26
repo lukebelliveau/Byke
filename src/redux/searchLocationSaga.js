@@ -1,3 +1,4 @@
+// @flow
 import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects';
 import api from '../api';
 import actions, { types } from './actions';
@@ -18,7 +19,7 @@ function* fetchLocations(action) {
   }
 }
 
-function* searchLocationSaga() {
+function* searchLocationSaga(): Generator<*, *, *> {
   yield takeLatest('SEARCH_LOCATIONS', fetchLocations);
 }
 

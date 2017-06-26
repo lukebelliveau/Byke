@@ -5,20 +5,22 @@ import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
 import api from '../../api';
-import getLocation from '../../geolocation';
-
-type Station = {
-  latitude: number,
-  longitude: number,
-  stationName: string,
-  availableBikes: number,
-};
+import { Region, Location, Station, Trip } from '../../Types';
 
 type Props = {
-  locationUpdated: Object => void,
+  stations: Array<Station>,
+  region: Region,
+  trip: Trip,
+  loadingStarted: () => void,
+  loadingFinished: () => void,
+  locationUpdated: Location => void,
+  stationsFetched: (Array<Station>) => void,
 };
 
 class Map extends Component {
+  map: {
+    animateToRegion: Region => void,
+  };
   constructor(props: Props) {
     super(props);
 

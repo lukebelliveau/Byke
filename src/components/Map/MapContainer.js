@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import MapComponent from './Map';
 import actions from '../../redux/actions';

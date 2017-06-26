@@ -16,9 +16,9 @@ it('should render', () => {
 it('calls userSubmitted callback when user presses submit', () => {
   const userSubmitted = jest.fn();
   const entryString = 'DisneyWorld';
-  const input = shallow(<SearchBar searchText={entryString} searchLocations={userSubmitted} />).find(
-    TextInput
-  );
+  const input = shallow(
+    <SearchBar searchText={entryString} searchLocations={userSubmitted} />
+  ).find(TextInput);
 
   input.simulate('submitEditing');
 
