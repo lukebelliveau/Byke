@@ -15,10 +15,7 @@ type Station = {
 };
 
 type Props = {
-  region: { number: string },
-  stations: Array<Station>,
-  style: Object,
-  trip: Object,
+  locationUpdated: Object => void,
 };
 
 class Map extends Component {
@@ -28,8 +25,6 @@ class Map extends Component {
     this.props = props;
     this.fetchStationInfo();
     this.watchLocation();
-
-    getLocation(location => this.props.locationUpdated(location.coords));
   }
 
   watchLocation() {
