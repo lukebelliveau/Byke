@@ -941,26 +941,34 @@ Object {
 exports[`TRIP_SET puts trip data into state 1`] = `
 Object {
   "isLoading": false,
-  "location": Array [],
   "places": Array [],
   "region": Object {
-    "latitude": 0,
-    "latitudeDelta": 0.005,
-    "longitude": 0,
-    "longitudeDelta": 0.005,
+    "latitude": 75,
+    "latitudeDelta": 50.005,
+    "longitude": 75,
+    "longitudeDelta": 50.005,
   },
   "searchText": "",
-  "stations": Array [],
+  "stations": Array [
+    Object {
+      "latitude": 25,
+      "longitude": 25,
+    },
+    Object {
+      "latitude": 75,
+      "longitude": 75,
+    },
+  ],
   "trip": Object {
     "currentLocation": Object {
-      "latitude": 0,
+      "latitude": 50,
       "latitudeDelta": 0.01,
-      "longitude": 0,
+      "longitude": 50,
       "longitudeDelta": 0.01,
     },
     "destination": Object {
-      "currentLocation": "cur",
-      "destination": "des",
+      "latitude": 100,
+      "longitude": 100,
     },
   },
 }

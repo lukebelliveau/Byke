@@ -94,6 +94,54 @@ exports[`renders a trip with marker in location and destination 1`] = `
           }
         />
       </View>
+      <Marker
+        coordinate={
+          Object {
+            "availableBikes": 6,
+            "latitude": 50,
+            "longitude": 50,
+            "stationName": "Bike Station 1",
+          }
+        }
+        description="6 bikes available"
+        onPress={[Function]}
+        title="Bike Station 1"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "green",
+              "borderRadius": 10,
+              "height": 15,
+              "width": 15,
+            }
+          }
+        />
+      </Marker>
+      <Marker
+        coordinate={
+          Object {
+            "availableBikes": 6,
+            "latitude": 50,
+            "longitude": 50,
+            "stationName": "Bike Station 1",
+          }
+        }
+        description="6 bikes available"
+        onPress={[Function]}
+        title="Bike Station 1"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "green",
+              "borderRadius": 10,
+              "height": 15,
+              "width": 15,
+            }
+          }
+        />
+      </Marker>
     </View>
   </MapView>
 </View>

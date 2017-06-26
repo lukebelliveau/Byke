@@ -38,9 +38,19 @@ test('PLACES_FETCHED puts places in state', () => {
 });
 
 test('TRIP_SET puts trip data into state', () => {
-  const trip = { currentLocation: 'cur', destination: 'des' };
-  const state = reducer();
-
+  const trip = { latitude: 100, longitude: 100 };
+  let state = reducer();
+  state = reducer(
+    state,
+    actions.locationUpdated({ latitude: 50, longitude: 50 })
+  );
+  state = reducer(
+    state,
+    actions.stationsFetched([
+      { latitude: 25, longitude: 25 },
+      { latitude: 75, longitude: 75 },
+    ])
+  );
   const withTrip = reducer(state, actions.tripSet(trip));
 
   expect(withTrip).toMatchSnapshot();

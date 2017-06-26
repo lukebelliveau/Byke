@@ -27,6 +27,16 @@ it('displays stations from state', () => {
 
 it('renders a trip with marker in location and destination', () => {
   const store = createStore(reducers);
+  store.dispatch(
+    actions.stationsFetched([
+      {
+        stationName: 'Bike Station 1',
+        availableBikes: 6,
+        latitude: 50,
+        longitude: 50,
+      },
+    ])
+  );
   store.dispatch(actions.tripSet(trip.destination));
 
   const map = connectToRedux(<Map />, store).toJSON();

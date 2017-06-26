@@ -60,7 +60,10 @@ const reducer = (
         isLoading: { $set: false },
       });
     case types.TRIP_SET:
-      const region = utils.computeRegionThatFitsAllPoints([action.payload, state.region]);
+      const region = utils.computeRegionThatFitsAllPoints([
+        action.payload,
+        state.region,
+      ]);
       return update(state, {
         trip: {
           $set: {
@@ -68,8 +71,13 @@ const reducer = (
             destination: action.payload,
           },
         },
+        stations: {
+          $set: [
+            utils.findClosestStation(state.region, state.stations),
+            utils.findClosestStation(action.payload, state.stations),
+          ],
+        },
         region: { $set: region },
-        location: { $set: [] },
       });
     case types.LOCATION_UPDATED:
       return update(state, {

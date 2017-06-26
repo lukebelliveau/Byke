@@ -28,13 +28,12 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
 };
 
 const findClosestStation = (currentLocation, stations) => {
-  console.log('IN FUNCTION');
   let closestFound = {
     station: null,
     distance: Number.POSITIVE_INFINITY,
   };
 
-  stations.forEach((station, index) => {
+  stations.forEach(station => {
     const lateralDistance = Math.abs(
       currentLocation.latitude - station.latitude
     );
@@ -44,7 +43,7 @@ const findClosestStation = (currentLocation, stations) => {
     const distance = lateralDistance + longitudalDistance / 2;
 
     if (distance < closestFound.distance)
-      closestFound = { station: station.id, index: index, distance: distance };
+      closestFound = { station: station, distance: distance };
   });
 
   return closestFound.station;
