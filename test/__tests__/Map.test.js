@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import Map from '../../src/components/Map/MapContainer';
@@ -24,15 +25,15 @@ const trip = {
 
 api.getAllStations = jest.fn(() => new Promise(resolve => resolve(stations)));
 
-it.skip('displays stations in state', () => {
+it('displays stations from state', () => {
   const store = createStore(reducers);
   store.dispatch(actions.stationsFetched(stations));
-  const map = connectToRedux(<Map />, store);
+  const map = connectToRedux(<Provider store={store}><Map /></Provider>, store);
 
   expect(map).toMatchSnapshot();
 });
 
-it.skip('renders a trip with marker in location and destination', () => {
+it('renders a trip with marker in location and destination', () => {
   const store = createStore(reducers);
   store.dispatch(actions.tripSet(trip.destination));
 
@@ -75,3 +76,21 @@ jest.mock('react-native-maps', () => {
   MockMapView.Callout = MockCallout;
   return MockMapView;
 });
+
+const location = {
+  coords: {latitude: 50, longitude: 50}
+}
+const mockGeolocation = {
+  getCurrentPosition: jest.fn((callback) => {
+    callback({
+      coords: {latitude: 50, longitude: 50}
+    })
+  }),
+  watchPosition: jest.fn((callback) => {
+    callback({
+      coords: {latitude: 50, longitude: 50}
+    })
+  })
+};
+
+global.navigator.geolocation = mockGeolocation;

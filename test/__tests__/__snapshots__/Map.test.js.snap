@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`displays stations in state 1`] = `
+exports[`displays stations from state 1`] = `
 <View
   style={
     Object {
@@ -18,7 +18,14 @@ exports[`displays stations in state 1`] = `
   >
     <View>
       <Marker
-        coordinate={undefined}
+        coordinate={
+          Object {
+            "latitude": 50,
+            "latitudeDelta": 0.01,
+            "longitude": 50,
+            "longitudeDelta": 0.01,
+          }
+        }
       />
       <Marker
         coordinate={
@@ -66,23 +73,27 @@ exports[`renders a trip with marker in location and destination 1`] = `
     }
   >
     <View>
-      <Marker
-        coordinate={
-          Object {
-            "latitude": 99,
-            "longitude": 99,
+      <View>
+        <Marker
+          coordinate={
+            Object {
+              "latitude": 0,
+              "latitudeDelta": 0.01,
+              "longitude": 0,
+              "longitudeDelta": 0.01,
+            }
           }
-        }
-        pinColor="blue"
-      />
-      <Marker
-        coordinate={
-          Object {
-            "latitude": 199,
-            "longitude": 199,
+          pinColor="blue"
+        />
+        <Marker
+          coordinate={
+            Object {
+              "latitude": 199,
+              "longitude": 199,
+            }
           }
-        }
-      />
+        />
+      </View>
     </View>
   </MapView>
 </View>
