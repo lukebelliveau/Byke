@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native';
 
-import { Trip, Location, Place } from '../../Types';
+import type { Trip, Location, Place } from '../../Types';
 
 type Props = {
   trip: Trip,

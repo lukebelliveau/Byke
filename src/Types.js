@@ -1,28 +1,28 @@
-type Region = {
+export type Region = {
   latitude: number,
   longitude: number,
   latitudeDelta: number,
   longitudeDelta: number,
 };
 
-type Location = {
+export type Location = {
   latitude: number,
   longitude: number,
 };
 
-type Station = {
+export type Station = {
   latitude: number,
   longitude: number,
   stationName: string,
   availableBikes: number,
 };
 
-type Trip = {
+export type Trip = {
   currentLocation: Location,
   destination: Location,
 };
 
-type State = {
+export type State = {
   isLoading: boolean,
   stations: Array<Object>,
   trip: ?Trip,
@@ -31,10 +31,3 @@ type State = {
   searchText: string,
 };
 
-export default {
-  Region,
-  Location,
-  Station,
-  Trip,
-  State,
-};
