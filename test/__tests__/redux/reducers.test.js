@@ -65,6 +65,23 @@ test('LOCATION_UPDATED updates location in state', () => {
   expect(withUpdatedLocation).toMatchSnapshot();
 });
 
+test('LOCATION_UPDATED does not update region if not following user', () => {
+  let state = reducer();
+  state = {
+    ...state,
+    followingUser: false,
+  };
+
+  console.log(state);
+
+  state = reducer(state, actions.locationUpdated({
+    latitude: 97,
+    longitude: 98,
+  }));
+
+  expect(state).toMatchSnapshot();
+});
+
 test('CHANGED SEARCH_TEXT changes searchText in state', () => {
   const text = 'a query';
   const state = reducer();

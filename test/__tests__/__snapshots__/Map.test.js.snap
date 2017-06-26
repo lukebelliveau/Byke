@@ -21,9 +21,7 @@ exports[`displays stations from state 1`] = `
         coordinate={
           Object {
             "latitude": 50,
-            "latitudeDelta": 0.01,
             "longitude": 50,
-            "longitudeDelta": 0.01,
           }
         }
       />
@@ -77,10 +75,8 @@ exports[`renders a trip with marker in location and destination 1`] = `
         <Marker
           coordinate={
             Object {
-              "latitude": 0,
-              "latitudeDelta": 0.01,
-              "longitude": 0,
-              "longitudeDelta": 0.01,
+              "latitude": 50,
+              "longitude": 50,
             }
           }
           pinColor="blue"

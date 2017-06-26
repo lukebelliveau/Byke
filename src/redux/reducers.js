@@ -19,6 +19,11 @@ type Place = {
 
 const initialState = {
   isLoading: false,
+  followingUser: true,
+  currentLocation: {
+    latitude: 0,
+    longitude: 0,
+  },
   stations: [],
   trip: null,
   places: [],
@@ -67,7 +72,6 @@ const reducer = (
       return update(state, {
         trip: {
           $set: {
-            currentLocation: state.region,
             destination: action.payload,
           },
         },
@@ -78,12 +82,22 @@ const reducer = (
           ],
         },
         region: { $set: region },
+        followingUser: { $set: false },
       });
     case types.LOCATION_UPDATED:
       return update(state, {
+        currentLocation: { $set: action.payload },
         region: {
-          latitude: { $set: action.payload.latitude },
-          longitude: { $set: action.payload.longitude },
+          latitude: {
+            $set: (state.followingUser === true)
+              ? action.payload.latitude
+              : state.region.latitude,
+          },
+          longitude: {
+            $set: state.followingUser
+              ? action.payload.longitude
+              : state.region.longitude,
+          },
         },
       });
     case types.CHANGE_SEARCH_TEXT:

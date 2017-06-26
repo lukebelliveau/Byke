@@ -67,6 +67,7 @@ class Map extends Component {
     const trip = this.props.trip;
     const region = this.props.region;
     const stations = this.props.stations;
+    const currentLocation = this.props.currentLocation;
 
     return (
       <View style={{ flex: 1 }}>
@@ -78,7 +79,12 @@ class Map extends Component {
               this.map = ref;
             }}
           >
-            <MapContents region={region} stations={stations} trip={trip} />
+            <MapContents
+              region={region}
+              currentLocation={currentLocation}
+              stations={stations}
+              trip={trip}
+            />
           </MapView>
         }
       </View>
@@ -86,14 +92,14 @@ class Map extends Component {
   }
 }
 
-const MapContents = ({ region, stations, trip }) =>
+const MapContents = ({ stations, trip, currentLocation }) =>
   <View>
     {trip
       ? <View>
-          <MapView.Marker coordinate={trip.currentLocation} pinColor="blue" />
+          <MapView.Marker coordinate={currentLocation} pinColor="blue" />
           <MapView.Marker coordinate={trip.destination} />
         </View>
-      : <MapView.Marker coordinate={region} />}
+      : <MapView.Marker coordinate={currentLocation} />}
 
     {stations.map((station, index) =>
       <StationMarker

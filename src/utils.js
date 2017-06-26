@@ -27,7 +27,10 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   };
 };
 
-const findClosestStation = (currentLocation: Location, stations: Array<Station>) => {
+const findClosestStation = (
+  currentLocation: Location,
+  stations: Array<Station>
+) => {
   let closestFound = {
     station: null,
     distance: Number.POSITIVE_INFINITY,
