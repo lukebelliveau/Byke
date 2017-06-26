@@ -28,13 +28,9 @@ class Map extends Component {
   }
 
   watchLocation() {
-    navigator.geolocation.watchPosition(
-      location => {
-        this.props.locationUpdated(location.coords),
-          null,
-          {}
-      }
-    );
+    navigator.geolocation.watchPosition(location => {
+      this.props.locationUpdated(location.coords), null, {};
+    });
   }
 
   componentDidUpdate() {

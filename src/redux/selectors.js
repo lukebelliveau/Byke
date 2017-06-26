@@ -1,4 +1,6 @@
-const getLatitude = state => state.region.latitude;
+const getLatitude = state => {
+  state.region.latitude;
+};
 const getLongitude = state => state.region.longitude;
 const getCoordinates = state => ({
   latitude: getLatitude(state),

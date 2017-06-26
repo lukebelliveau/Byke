@@ -22,7 +22,7 @@ test('STATIONS_FETCHED puts stations in state', () => {
   const stations = ['station1', 'station2'];
   const state = reducer();
 
-  const action = actions.stationsFetched(stations)
+  const action = actions.stationsFetched(stations);
   const withStations = reducer(state, actions.stationsFetched(stations));
 
   expect(withStations).toMatchSnapshot();
@@ -73,4 +73,4 @@ it('handles improper actions', () => {
   const stateAfterAction = reducer(initialState, 'an invalid action');
 
   expect(initialState).toEqual(stateAfterAction);
-})
+});

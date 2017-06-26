@@ -78,19 +78,19 @@ jest.mock('react-native-maps', () => {
 });
 
 const location = {
-  coords: {latitude: 50, longitude: 50}
-}
+  coords: { latitude: 50, longitude: 50 },
+};
 const mockGeolocation = {
-  getCurrentPosition: jest.fn((callback) => {
+  getCurrentPosition: jest.fn(callback => {
     callback({
-      coords: {latitude: 50, longitude: 50}
-    })
+      coords: { latitude: 50, longitude: 50 },
+    });
   }),
-  watchPosition: jest.fn((callback) => {
+  watchPosition: jest.fn(callback => {
     callback({
-      coords: {latitude: 50, longitude: 50}
-    })
-  })
+      coords: { latitude: 50, longitude: 50 },
+    });
+  }),
 };
 
 global.navigator.geolocation = mockGeolocation;
