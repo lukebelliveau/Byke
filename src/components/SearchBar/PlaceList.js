@@ -23,7 +23,6 @@ class PlaceList extends React.Component {
 
   render() {
     return this.props.trip
-      console.log('***')
       ? null
       : <View
           style={styles.container}

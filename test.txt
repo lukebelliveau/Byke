@@ -1,37 +1,1 @@
-yarn test v0.23.4
-$ node node_modules/jest/bin/jest.js --watch 
-
- RUNS  ...LocationList.test.js
-[K[1A[K[1A
- RUNS  ...LocationList.test.js
-[K[1A[K[1A
- RUNS  ...LocationList.test.js
-[K[1A[K[1A
- RUNS  ...LocationList.test.js
-[K[1A[K[1A
- RUNS  ...Map.test.js
-[K[1A[K[1A
- RUNS  ...Map.test.js
-[K[1A[K[1A
- RUNS  ...Map.test.js
-[K[1A[K[1A
- RUNS  ...Map.test.js
-[K[1A[K[1A
- RUNS  ...searchLocationSaga.test.js
-[K[1A[K[1A
- RUNS  ...searchLocationSaga.test.js
-[K[1A[K[1A
- RUNS  ...reducers.test.js
-[K[1A[K[1A
- RUNS  ...reducers.test.js
-[K[1A[K[1A
- RUNS  ...reducers.test.js
-[K[1A[K[1A
-Watch Usage
- › Press a to run all tests.
- › Press u to update failing snapshots.
- › Press p to filter by a filename regex pattern.
- › Press t to filter by a test name regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
-Done in 17.50s.
+yarn test v0.23.4$ node node_modules/jest/bin/jest.js --watch  RUNS  ...PlaceList.test.js[K[1A[K[1A RUNS  ...PlaceList.test.js[K[1A[K[1A RUNS  ...PlaceList.test.js[K[1A[K[1A RUNS  ...PlaceList.test.js[K[1A[K[1A RUNS  ...Map.test.js[K[1A[K[1A RUNS  ...Map.test.js[K[1A[K[1A RUNS  ...Map.test.js[K[1A[K[1A RUNS  ...Map.test.js[K[1A[K[1A RUNS  ...searchLocationSaga.test.js[K[1A[K[1A RUNS  ...searchLocationSaga.test.js[K[1A[K[1A RUNS  ...reducers.test.js[K[1A[K[1A RUNS  ...reducers.test.js[K[1A[K[1A RUNS  ...reducers.test.js[K[1A[K[1AWatch Usage › Press a to run all tests. › Press u to update failing snapshots. › Press p to filter by a filename regex pattern. › Press t to filter by a test name regex pattern. › Press q to quit watch mode. › Press Enter to trigger a test run.Done in 17.50s.
