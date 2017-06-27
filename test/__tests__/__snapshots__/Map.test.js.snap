@@ -23,7 +23,22 @@ exports[`displays stations from state 1`] = `
           "longitude": 50,
         }
       }
-    />
+      onPress={[Function]}
+      title="Your location"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "dodgerblue",
+            "borderColor": "white",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "height": 20,
+            "width": 20,
+          }
+        }
+      />
+    </Marker>
     <Marker
       coordinate={
         Object {
@@ -78,8 +93,22 @@ exports[`renders a trip with marker in location and destination 1`] = `
             "longitude": 50,
           }
         }
-        pinColor="blue"
-      />
+        onPress={[Function]}
+        title="Your location"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "dodgerblue",
+              "borderColor": "white",
+              "borderRadius": 50,
+              "borderWidth": 1,
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </Marker>
       <Marker
         coordinate={
           Object {

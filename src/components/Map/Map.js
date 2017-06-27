@@ -4,6 +4,7 @@ import { Keyboard, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
+import CurrentLocationMarker from './CurrentLocationMarker';
 import api from '../../api';
 import { Region, Location, Station, Trip } from '../../Types';
 
@@ -83,13 +84,10 @@ class Map extends Component {
           >
             {trip
               ? <View>
-                  <MapView.Marker
-                    coordinate={currentLocation}
-                    pinColor="blue"
-                  />
+                  <CurrentLocationMarker coordinate={currentLocation} />
                   <MapView.Marker coordinate={trip.destination} />
                 </View>
-              : <MapView.Marker coordinate={currentLocation} />}
+              : <CurrentLocationMarker coordinate={currentLocation} />}
 
             {stations.map((station, index) => {
               return (

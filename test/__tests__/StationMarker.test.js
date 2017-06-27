@@ -14,10 +14,7 @@ it('opens Google Maps with origin and destination coordinates', () => {
   const currentLocation = { latitude: 50, longitude: 50 };
   const destination = { latitude: 100, longitude: 100 };
   const marker = shallow(
-    <StationMarker
-      currentLocation={currentLocation}
-      coordinate={destination}
-    />
+    <StationMarker currentLocation={currentLocation} coordinate={destination} />
   );
 
   marker.simulate('calloutPress');
