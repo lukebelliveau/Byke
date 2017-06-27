@@ -23,7 +23,14 @@ const Marker = ({
       title={stationName}
       description={`${availableBikes} bikes available, ${availableDocks} docks available`}
       onPress={Keyboard.dismiss}
-      onCalloutPress={() => utils.openDirections(currentLocation, coordinate)}
+      onCalloutPress={() =>
+        utils.displayNavigationAlert(
+          currentLocation,
+          stationName,
+          coordinate,
+          availableBikes,
+          availableDocks
+        )}
     >
       <Circle color={availableBikes > 5 ? 'green' : 'red'} />
     </MapView.Marker>

@@ -8,18 +8,33 @@ import utils from '../../src/utils';
 
 const coordinate = { latitude: 50, longitude: 50 };
 
-it('opens Google Maps with origin and destination coordinates', () => {
-  utils.openDirections = jest.fn();
+it('opens alert to Google Maps with origin and destination coordinates', () => {
+  utils.displayNavigationAlert = jest.fn();
 
   const currentLocation = { latitude: 50, longitude: 50 };
+  const stationName = 'A station';
   const destination = { latitude: 100, longitude: 100 };
+  const availableBikes = 5;
+  const availableDocks = 10;
   const marker = shallow(
-    <StationMarker currentLocation={currentLocation} coordinate={destination} />
+    <StationMarker
+      currentLocation={currentLocation}
+      stationName={stationName}
+      availableBikes={availableBikes}
+      availableDocks={availableDocks}
+      coordinate={destination}
+    />
   );
 
   marker.simulate('calloutPress');
 
-  expect(utils.openDirections).toBeCalledWith(currentLocation, destination);
+  expect(utils.displayNavigationAlert).toBeCalledWith(
+    currentLocation,
+    stationName,
+    destination,
+    availableBikes,
+    availableDocks
+  );
 });
 
 it('should be green when more than 5 bikes are available', () => {

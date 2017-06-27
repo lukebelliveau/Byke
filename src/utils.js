@@ -1,5 +1,5 @@
 // @flow
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import { Location, Station } from './Types';
 
 const computeRegionThatFitsAllPoints = (landmarks: Location) => {
@@ -26,6 +26,26 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
     latitudeDelta,
     longitudeDelta,
   };
+};
+
+const displayNavigationAlert = (
+  currentLocation,
+  stationName,
+  stationCoordinates,
+  availableBikes,
+  availableDocks
+) => {
+  Alert.alert(
+    'Open Maps?',
+    `Get biking directions to ${stationName}?\nThere are ${availableBikes} bikes and ${availableDocks} docks available.`,
+    [
+      { text: 'Cancel' },
+      {
+        text: 'OK',
+        onPress: () => openDirections(currentLocation, stationCoordinates),
+      },
+    ]
+  );
 };
 
 const findClosestStation = (
@@ -55,7 +75,7 @@ const findClosestStation = (
 
 const openDirections = (origin, destination) => {
   Linking.openURL(
-    `https://www.google.com/maps/dir/?api=1&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}`
+    `https://www.google.com/maps/dir/?api=1&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&travelmode=bicycling`
   );
 };
 
@@ -63,4 +83,5 @@ export default {
   computeRegionThatFitsAllPoints,
   findClosestStation,
   openDirections,
+  displayNavigationAlert,
 };
