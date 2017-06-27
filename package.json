@@ -9,6 +9,7 @@
     "flow-bin": "^0.42.0",
     "jest-expo": "^1.0.3",
     "node-fetch": "^1.7.1",
+    "react-native-debugger-open": "^0.3.11",
     "react-native-scripts": "0.0.31",
     "react-test-renderer": "16.0.0-alpha.6",
     "redux-devtools": "^3.4.0"
@@ -16,6 +17,7 @@
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "react-native-scripts start",
+    "dev": "REACT_DEBUGGER='rndebugger-open --open --port 19002' yarn start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
@@ -38,7 +40,9 @@
     "react-native-maps": "^0.15.2",
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.15.4",
-    "redux-saga-tester": "^1.0.282"
+    "redux-saga-tester": "^1.0.282",
+    "remote-redux-devtools": "^0.5.12"
   }
 }
