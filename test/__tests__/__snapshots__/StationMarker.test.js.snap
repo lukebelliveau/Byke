@@ -8,7 +8,8 @@ exports[`should be green 1`] = `
       "longitude": 50,
     }
   }
-  description="8 bikes available"
+  description="8 bikes available, 10 docks available"
+  onCalloutPress={[Function]}
   onPress={[Function]}
   title="station"
 >
@@ -33,7 +34,8 @@ exports[`should be red 1`] = `
       "longitude": 50,
     }
   }
-  description="4 bikes available"
+  description="4 bikes available, 10 docks available"
+  onCalloutPress={[Function]}
   onPress={[Function]}
   title="station"
 >

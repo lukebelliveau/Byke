@@ -29,12 +29,14 @@ exports[`displays stations from state 1`] = `
         coordinate={
           Object {
             "availableBikes": 1,
+            "availableDocks": 10,
             "latitude": 50,
             "longitude": 60,
             "stationName": "station1",
           }
         }
-        description="1 bikes available"
+        description="1 bikes available, 10 docks available"
+        onCalloutPress={[Function]}
         onPress={[Function]}
         title="station1"
       >
@@ -93,20 +95,22 @@ exports[`renders a trip with marker in location and destination 1`] = `
       <Marker
         coordinate={
           Object {
-            "availableBikes": 6,
+            "availableBikes": 1,
+            "availableDocks": 10,
             "latitude": 50,
-            "longitude": 50,
-            "stationName": "Bike Station 1",
+            "longitude": 60,
+            "stationName": "station1",
           }
         }
-        description="6 bikes available"
+        description="1 bikes available, 10 docks available"
+        onCalloutPress={[Function]}
         onPress={[Function]}
-        title="Bike Station 1"
+        title="station1"
       >
         <View
           style={
             Object {
-              "backgroundColor": "green",
+              "backgroundColor": "red",
               "borderRadius": 10,
               "height": 15,
               "width": 15,
@@ -117,20 +121,22 @@ exports[`renders a trip with marker in location and destination 1`] = `
       <Marker
         coordinate={
           Object {
-            "availableBikes": 6,
+            "availableBikes": 1,
+            "availableDocks": 10,
             "latitude": 50,
-            "longitude": 50,
-            "stationName": "Bike Station 1",
+            "longitude": 60,
+            "stationName": "station1",
           }
         }
-        description="6 bikes available"
+        description="1 bikes available, 10 docks available"
+        onCalloutPress={[Function]}
         onPress={[Function]}
-        title="Bike Station 1"
+        title="station1"
       >
         <View
           style={
             Object {
-              "backgroundColor": "green",
+              "backgroundColor": "red",
               "borderRadius": 10,
               "height": 15,
               "width": 15,

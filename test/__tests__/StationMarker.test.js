@@ -13,6 +13,7 @@ it('should be green', () => {
         coordinate={coordinate}
         stationName="station"
         availableBikes={8}
+        availableDocks={10}
       />
     )
     .toJSON();
@@ -27,6 +28,7 @@ it('should be red', () => {
         coordinate={coordinate}
         stationName="station"
         availableBikes={4}
+        availableDocks={10}
       />
     )
     .toJSON();
