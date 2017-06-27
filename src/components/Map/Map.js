@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Keyboard, View, Text } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 import StationMarker from './StationMarker';
@@ -74,9 +74,6 @@ class Map extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ height: 50, width: '100%', zIndex: 1 }}>
-          <Text>{`heading: ${currentLocation.heading} latitude:${currentLocation.latitude} longitude: ${currentLocation.longitude}`}</Text>
-        </View>
         {
           <MapView
             style={{ flex: 1 }}
