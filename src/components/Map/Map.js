@@ -79,12 +79,26 @@ class Map extends Component {
               this.map = ref;
             }}
           >
-            <MapContents
-              region={region}
-              currentLocation={currentLocation}
-              stations={stations}
-              trip={trip}
-            />
+            {trip
+              ? <View>
+                <MapView.Marker coordinate={currentLocation} pinColor="blue" />
+                <MapView.Marker coordinate={trip.destination} />
+              </View>
+              : <MapView.Marker coordinate={currentLocation} />}
+
+            {stations.map((station, index) =>{
+                return(<StationMarker
+                  testId={station.stationName}
+                  stationName={station.stationName}
+                  coordinate={station}
+                  currentLocation={currentLocation}
+                  availableBikes={station.availableBikes}
+                  availableDocks={station.availableDocks}
+                  key={index}
+                />)
+              }
+
+            )}
           </MapView>
         }
       </View>
@@ -92,27 +106,4 @@ class Map extends Component {
   }
 }
 
-const MapContents = ({ stations, trip, currentLocation }) =>
-  <View>
-    {trip
-      ? <View>
-          <MapView.Marker coordinate={currentLocation} pinColor="blue" />
-          <MapView.Marker coordinate={trip.destination} />
-        </View>
-      : <MapView.Marker coordinate={currentLocation} />}
-
-    {stations.map((station, index) =>{
-      return(<StationMarker
-        testId={station.stationName}
-        stationName={station.stationName}
-        coordinate={station}
-        currentLocation={currentLocation}
-        availableBikes={station.availableBikes}
-        availableDocks={station.availableDocks}
-        key={index}
-      />)
-    }
-
-    )}
-  </View>;
 export default Map;
