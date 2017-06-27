@@ -56,7 +56,7 @@ class Map extends Component {
   fetchStationInfo = () => {
     this.props.loadingStarted();
     api
-      .getAllStations(`{ stationName, availableBikes, latitude, longitude }`)
+      .getAllStations(`{ stationName, availableBikes, availableDocks, latitude, longitude }`)
       .then(stations => {
         this.props.stationsFetched(stations);
         this.props.loadingFinished();
@@ -101,14 +101,18 @@ const MapContents = ({ stations, trip, currentLocation }) =>
         </View>
       : <MapView.Marker coordinate={currentLocation} />}
 
-    {stations.map((station, index) =>
-      <StationMarker
+    {stations.map((station, index) =>{
+      return(<StationMarker
         testId={station.stationName}
         stationName={station.stationName}
         coordinate={station}
+        currentLocation={currentLocation}
         availableBikes={station.availableBikes}
+        availableDocks={station.availableDocks}
         key={index}
-      />
+      />)
+    }
+
     )}
   </View>;
 export default Map;

@@ -2,25 +2,32 @@
 import React from 'react';
 import MapView from 'react-native-maps';
 import { Keyboard } from 'react-native';
+import utils from '../../utils';
 
 import Circle from '../shared/Circle';
 
 const Marker = ({
   coordinate,
   stationName,
+  currentLocation,
   availableBikes,
+  availableDocks,
 }: {
   coordinate: Object,
   stationName: string,
   availableBikes: number,
-}) =>
-  <MapView.Marker
-    coordinate={coordinate}
-    title={stationName}
-    description={`${availableBikes} bikes available`}
-    onPress={Keyboard.dismiss}
-  >
-    <Circle color={availableBikes > 5 ? 'green' : 'red'} />
-  </MapView.Marker>;
+}) => {
+  return (
+    <MapView.Marker
+      coordinate={coordinate}
+      title={stationName}
+      description={`${availableBikes} bikes available, ${availableDocks} docks available`}
+      onPress={Keyboard.dismiss}
+      onCalloutPress={() => utils.openDirections(currentLocation, coordinate)}
+    >
+      <Circle color={availableBikes > 5 ? 'green' : 'red'} />
+    </MapView.Marker>
+  );
+};
 
 export default Marker;
