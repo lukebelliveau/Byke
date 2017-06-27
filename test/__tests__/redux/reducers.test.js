@@ -72,12 +72,13 @@ test('LOCATION_UPDATED does not update region if not following user', () => {
     followingUser: false,
   };
 
-  console.log(state);
-
-  state = reducer(state, actions.locationUpdated({
-    latitude: 97,
-    longitude: 98,
-  }));
+  state = reducer(
+    state,
+    actions.locationUpdated({
+      latitude: 97,
+      longitude: 98,
+    })
+  );
 
   expect(state).toMatchSnapshot();
 });
