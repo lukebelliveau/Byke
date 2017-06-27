@@ -26,7 +26,59 @@ exports[`should be green 1`] = `
 </Marker>
 `;
 
+exports[`should be green when more than 5 bikes are available 1`] = `
+<Marker
+  coordinate={
+    Object {
+      "latitude": 50,
+      "longitude": 50,
+    }
+  }
+  description="8 bikes available, 10 docks available"
+  onCalloutPress={[Function]}
+  onPress={[Function]}
+  title="station"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "green",
+        "borderRadius": 10,
+        "height": 15,
+        "width": 15,
+      }
+    }
+  />
+</Marker>
+`;
+
 exports[`should be red 1`] = `
+<Marker
+  coordinate={
+    Object {
+      "latitude": 50,
+      "longitude": 50,
+    }
+  }
+  description="4 bikes available, 10 docks available"
+  onCalloutPress={[Function]}
+  onPress={[Function]}
+  title="station"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "red",
+        "borderRadius": 10,
+        "height": 15,
+        "width": 15,
+      }
+    }
+  />
+</Marker>
+`;
+
+exports[`should be red when 5 or less bikes are available 1`] = `
 <Marker
   coordinate={
     Object {

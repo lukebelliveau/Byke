@@ -4,9 +4,28 @@ import { shallow } from 'enzyme';
 import { Keyboard } from 'react-native';
 
 import StationMarker from '../../src/components/Map/StationMarker';
+import utils from '../../src/utils';
 
 const coordinate = { latitude: 50, longitude: 50 };
-it('should be green', () => {
+
+it('opens Google Maps with origin and destination coordinates', () => {
+  utils.openDirections = jest.fn();
+
+  const currentLocation = { latitude: 50, longitude: 50 };
+  const destination = { latitude: 100, longitude: 100 };
+  const marker = shallow(
+    <StationMarker
+      currentLocation={currentLocation}
+      coordinate={destination}
+    />
+  );
+
+  marker.simulate('calloutPress');
+
+  expect(utils.openDirections).toBeCalledWith(currentLocation, destination);
+});
+
+it('should be green when more than 5 bikes are available', () => {
   const marker = renderer
     .create(
       <StationMarker
@@ -21,7 +40,7 @@ it('should be green', () => {
   expect(marker).toMatchSnapshot();
 });
 
-it('should be red', () => {
+it('should be red when 5 or less bikes are available', () => {
   const marker = renderer
     .create(
       <StationMarker

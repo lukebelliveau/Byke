@@ -8,7 +8,13 @@ import reducers from '../../src/redux/reducers';
 import actions from '../../src/redux/actions';
 
 const stations = [
-  { stationName: 'station1', availableBikes: 1, availableDocks: 10, latitude: 50, longitude: 60 },
+  {
+    stationName: 'station1',
+    availableBikes: 1,
+    availableDocks: 10,
+    latitude: 50,
+    longitude: 60,
+  },
 ];
 const trip = {
   currentLocation: { latitude: 99, longitude: 99 },
@@ -27,9 +33,7 @@ it('displays stations from state', () => {
 
 it('renders a trip with marker in location and destination', () => {
   const store = createStore(reducers);
-  store.dispatch(
-    actions.stationsFetched(stations)
-  );
+  store.dispatch(actions.stationsFetched(stations));
   store.dispatch(actions.tripSet(trip.destination));
 
   const map = connectToRedux(<Map />, store).toJSON();

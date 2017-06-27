@@ -56,7 +56,9 @@ class Map extends Component {
   fetchStationInfo = () => {
     this.props.loadingStarted();
     api
-      .getAllStations(`{ stationName, availableBikes, availableDocks, latitude, longitude }`)
+      .getAllStations(
+        `{ stationName, availableBikes, availableDocks, latitude, longitude }`
+      )
       .then(stations => {
         this.props.stationsFetched(stations);
         this.props.loadingFinished();
@@ -81,13 +83,17 @@ class Map extends Component {
           >
             {trip
               ? <View>
-                <MapView.Marker coordinate={currentLocation} pinColor="blue" />
-                <MapView.Marker coordinate={trip.destination} />
-              </View>
+                  <MapView.Marker
+                    coordinate={currentLocation}
+                    pinColor="blue"
+                  />
+                  <MapView.Marker coordinate={trip.destination} />
+                </View>
               : <MapView.Marker coordinate={currentLocation} />}
 
-            {stations.map((station, index) =>{
-                return(<StationMarker
+            {stations.map((station, index) => {
+              return (
+                <StationMarker
                   testId={station.stationName}
                   stationName={station.stationName}
                   coordinate={station}
@@ -95,10 +101,9 @@ class Map extends Component {
                   availableBikes={station.availableBikes}
                   availableDocks={station.availableDocks}
                   key={index}
-                />)
-              }
-
-            )}
+                />
+              );
+            })}
           </MapView>
         }
       </View>

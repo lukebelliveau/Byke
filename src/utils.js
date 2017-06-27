@@ -1,5 +1,5 @@
 // @flow
-import getDirections from 'react-native-google-maps-directions';
+import { Linking } from 'react-native';
 import { Location, Station } from './Types';
 
 const computeRegionThatFitsAllPoints = (landmarks: Location) => {
@@ -53,19 +53,10 @@ const findClosestStation = (
   return closestFound.station;
 };
 
-const openDirections = (source, destination) => {
-  const data = {
-    source,
-    destination,
-    params: [
-      {
-        key: 'dirflg',
-        value: 'b',
-      },
-    ],
-  };
-
-  getDirections(data);
+const openDirections = (origin, destination) => {
+  Linking.openURL(
+    `https://www.google.com/maps/dir/?api=1&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}`
+  );
 };
 
 export default {
