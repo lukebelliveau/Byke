@@ -94,7 +94,7 @@ const reducer = (
               : state.region.latitude,
           },
           longitude: {
-            $set: state.followingUser
+            $set: state.followingUser === true
               ? action.payload.longitude
               : state.region.longitude,
           },
