@@ -9,7 +9,6 @@
     "flow-bin": "^0.42.0",
     "jest-expo": "^1.0.3",
     "node-fetch": "^1.7.1",
-    "react-native-mock": "^0.3.1",
     "react-native-scripts": "0.0.31",
     "react-test-renderer": "16.0.0-alpha.6",
     "redux-devtools": "^3.4.0"
@@ -36,7 +35,6 @@
     "jest": "^20.0.4",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",
-    "react-native-google-maps-directions": "^1.1.0",
     "react-native-maps": "^0.15.2",
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
