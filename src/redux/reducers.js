@@ -88,15 +88,15 @@ const reducer = (
       return update(state, {
         currentLocation: { $set: action.payload },
         region: {
-          latitude: {
-            $set: state.followingUser === true
+          $set: {
+            latitude: state.followingUser === true
               ? action.payload.latitude
               : state.region.latitude,
-          },
-          longitude: {
-            $set: state.followingUser
+            longitude: state.followingUser === true
               ? action.payload.longitude
-              : state.region.longitude,
+              : state.region.latitude,
+            latitudeDelta: state.region.latitudeDelta,
+            longitudeDelta: state.region.longitudeDelta,
           },
         },
       });
