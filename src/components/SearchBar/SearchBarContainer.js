@@ -25,6 +25,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   region: state.region,
   searchText: state.searchText,
+  trip: state.trip,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
