@@ -37,23 +37,35 @@ test('PLACES_FETCHED puts places in state', () => {
   expect(withLocations).toMatchSnapshot();
 });
 
-test('TRIP_SET puts trip data into state', () => {
+describe('trip', () => {
   const trip = { latitude: 100, longitude: 100 };
-  let state = reducer();
-  state = reducer(
-    state,
-    actions.locationUpdated({ latitude: 50, longitude: 50 })
-  );
-  state = reducer(
-    state,
-    actions.stationsFetched([
-      { latitude: 25, longitude: 25 },
-      { latitude: 75, longitude: 75 },
-    ])
-  );
-  const withTrip = reducer(state, actions.tripSet(trip));
 
-  expect(withTrip).toMatchSnapshot();
+  test('TRIP_SET puts trip data into state', () => {
+    let state = reducer();
+    state = reducer(
+      state,
+      actions.locationUpdated({ latitude: 50, longitude: 50 })
+    );
+    state = reducer(
+      state,
+      actions.stationsFetched([
+        { latitude: 25, longitude: 25 },
+        { latitude: 75, longitude: 75 },
+      ])
+    );
+    const withTrip = reducer(state, actions.tripSet(trip));
+
+    expect(withTrip).toMatchSnapshot();
+  });
+
+  test('EXIT_TRIP sets trip state to null and region to center on user', () => {
+    let state = reducer();
+    state = reducer(state, actions.tripSet(trip));
+
+    state = reducer(state, actions.exitTrip());
+
+    expect(state).toMatchSnapshot();
+  });
 });
 
 test('LOCATION_UPDATED updates location in state', () => {

@@ -100,6 +100,14 @@ const reducer = (
           },
         },
       });
+    case types.EXIT_TRIP:
+      return update(state, {
+        trip: { $set: null },
+        region: {
+          latitude: { $set: state.currentLocation.latitude },
+          longitude: { $set: state.currentLocation.longitude },
+        },
+      });
     case types.CHANGE_SEARCH_TEXT:
       return update(state, {
         searchText: { $set: action.payload },

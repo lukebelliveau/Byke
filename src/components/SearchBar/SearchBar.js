@@ -20,10 +20,11 @@ const SearchBar = ({
   changeSearchText,
   searchPlaces,
   trip,
+  exitTrip,
 }: PropTypes) =>
   <View style={[styles.container]}>
     {trip
-      ? <TouchableOpacity style={styles.button}>
+      ? <TouchableOpacity onPress={exitTrip} style={styles.button}>
           <Text style={styles.arrow}>{'<'}</Text>
         </TouchableOpacity>
       : null}

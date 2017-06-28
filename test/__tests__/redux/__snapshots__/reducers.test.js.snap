@@ -1023,3 +1023,62 @@ Object {
   },
 }
 `;
+
+exports[`trip EXIT_TRIP sets trip state to null and region to center on user 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 0,
+    "longitude": 0,
+  },
+  "followingUser": false,
+  "isLoading": false,
+  "places": Array [],
+  "region": Object {
+    "latitude": 0,
+    "latitudeDelta": 100.005,
+    "longitude": 0,
+    "longitudeDelta": 100.005,
+  },
+  "searchText": "",
+  "stations": Array [
+    null,
+    null,
+  ],
+  "trip": null,
+}
+`;
+
+exports[`trip TRIP_SET puts trip data into state 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 50,
+    "longitude": 50,
+  },
+  "followingUser": false,
+  "isLoading": false,
+  "places": Array [],
+  "region": Object {
+    "latitude": 75,
+    "latitudeDelta": 50.005,
+    "longitude": 75,
+    "longitudeDelta": 50.005,
+  },
+  "searchText": "",
+  "stations": Array [
+    Object {
+      "latitude": 25,
+      "longitude": 25,
+    },
+    Object {
+      "latitude": 75,
+      "longitude": 75,
+    },
+  ],
+  "trip": Object {
+    "destination": Object {
+      "latitude": 100,
+      "longitude": 100,
+    },
+  },
+}
+`;

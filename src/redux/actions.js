@@ -9,11 +9,16 @@ export const types = {
   LOCATION_UPDATED: 'LOCATION_UPDATED',
   SEARCH_PLACES: 'SEARCH_PLACES',
   CHANGE_SEARCH_TEXT: 'CHANGE_SEARCH_TEXT',
+  EXIT_TRIP: 'EXIT_TRIP',
 };
 
 const searchPlaces = (searchQuery: string) => ({
   type: types.SEARCH_PLACES,
   payload: searchQuery,
+});
+
+const exitTrip = () => ({
+  type: types.EXIT_TRIP,
 });
 
 const loadingStarted = () => ({
@@ -58,4 +63,5 @@ export default {
   locationUpdated,
   searchPlaces,
   changeSearchText,
+  exitTrip,
 };

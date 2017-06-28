@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => ({
   changeSearchText: text => {
     dispatch(actions.changeSearchText(text));
   },
+  exitTrip: () => {
+    dispatch(actions.exitTrip());
+  },
 });
 
 const mapStateToProps = state => ({
