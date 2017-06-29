@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { Keyboard, View } from 'react-native';
 import MapView from 'react-native-maps';
 
-import StationMarker from './StationMarker';
-import CurrentLocationMarker from './CurrentLocationMarker';
+import Markers from './subcomponents/Markers';
 import api from '../../api';
 import { modes } from '../../redux/reducers';
 import { Location, Station, Trip } from '../../Types';
@@ -55,7 +54,10 @@ class Map extends Component {
   componentDidUpdate() {
     this.map.animateToRegion(
       this.props.mode === modes.tripDisplay
-        ? utils.computeRegionThatFitsAllPoints([this.props.currentLocation, this.props.trip.destination])
+        ? utils.computeRegionThatFitsAllPoints([
+            this.props.currentLocation,
+            this.props.trip.destination,
+          ])
         : utils.centerRegionOnUser(this.props.currentLocation)
     );
   }
@@ -88,43 +90,12 @@ class Map extends Component {
               this.map = ref;
             }}
           >
-            <CurrentLocationMarker coordinate={currentLocation} />
-
-            {mode === modes.tripDisplay
-              ? <View>
-                  <MapView.Marker coordinate={trip.destination} />
-                  {trip.closeToLocation.map(stationIndex => {
-                    const station = stations[stationIndex];
-                    return (
-                      <StationMarker
-                        testId={station.stationName}
-                        stationName={station.stationName}
-                        coordinate={station}
-                        currentLocation={currentLocation}
-                        availableBikes={station.availableBikes}
-                        availableDocks={station.availableDocks}
-                        key={stationIndex}
-                      />
-                    );
-                  })}
-                </View>
-              : null}
-
-            {mode === modes.overview
-              ? stations.map((station, index) => {
-                  return (
-                    <StationMarker
-                      testId={station.stationName}
-                      stationName={station.stationName}
-                      coordinate={station}
-                      currentLocation={currentLocation}
-                      availableBikes={station.availableBikes}
-                      availableDocks={station.availableDocks}
-                      key={index}
-                    />
-                  );
-                })
-              : null}
+            <Markers
+              mode={mode}
+              trip={trip}
+              stations={stations}
+              currentLocation={currentLocation}
+            />
           </MapView>
         }
       </View>

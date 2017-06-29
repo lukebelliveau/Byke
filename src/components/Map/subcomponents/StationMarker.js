@@ -2,9 +2,9 @@
 import React from 'react';
 import MapView from 'react-native-maps';
 import { Keyboard } from 'react-native';
-import utils from '../../utils';
+import utils from '../../../utils';
 
-import Circle from '../shared/Circle';
+import Circle from '../../shared/Circle';
 
 const Marker = ({
   coordinate,

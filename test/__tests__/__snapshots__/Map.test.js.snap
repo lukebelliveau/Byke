@@ -16,55 +16,59 @@ exports[`displays stations from state 1`] = `
       }
     }
   >
-    <Marker
-      coordinate={
-        Object {
-          "latitude": 50,
-          "longitude": 50,
-        }
-      }
-      onPress={[Function]}
-      title="Your location"
-    >
-      <View
-        style={
+    <View>
+      <Marker
+        coordinate={
           Object {
-            "backgroundColor": "dodgerblue",
-            "borderColor": "white",
-            "borderRadius": 50,
-            "borderWidth": 1,
-            "height": 20,
-            "width": 20,
+            "latitude": 50,
+            "longitude": 50,
           }
         }
-      />
-    </Marker>
-    <Marker
-      coordinate={
-        Object {
-          "availableBikes": 1,
-          "availableDocks": 10,
-          "latitude": 50,
-          "longitude": 60,
-          "stationName": "station1",
-        }
-      }
-      description="1 bikes available, 10 docks available"
-      onCalloutPress={[Function]}
-      onPress={[Function]}
-      title="station1"
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "red",
-            "borderRadius": 10,
-            "height": 15,
-            "width": 15,
+        onPress={[Function]}
+        title="Your location"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "dodgerblue",
+              "borderColor": "white",
+              "borderRadius": 50,
+              "borderWidth": 1,
+              "height": 20,
+              "width": 20,
+            }
           }
-        }
-      />
-    </Marker>
+        />
+      </Marker>
+      <View>
+        <Marker
+          coordinate={
+            Object {
+              "availableBikes": 1,
+              "availableDocks": 10,
+              "latitude": 50,
+              "longitude": 60,
+              "stationName": "station1",
+            }
+          }
+          description="1 bikes available, 10 docks available"
+          onCalloutPress={[Function]}
+          onPress={[Function]}
+          title="station1"
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "red",
+                "borderRadius": 10,
+                "height": 15,
+                "width": 15,
+              }
+            }
+          />
+        </Marker>
+      </View>
+    </View>
   </MapView>
 </View>
 `;
@@ -85,64 +89,68 @@ exports[`renders a trip with marker in location and destination 1`] = `
       }
     }
   >
-    <Marker
-      coordinate={
-        Object {
-          "latitude": 50,
-          "longitude": 50,
-        }
-      }
-      onPress={[Function]}
-      title="Your location"
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "dodgerblue",
-            "borderColor": "white",
-            "borderRadius": 50,
-            "borderWidth": 1,
-            "height": 20,
-            "width": 20,
-          }
-        }
-      />
-    </Marker>
     <View>
       <Marker
         coordinate={
           Object {
-            "latitude": 199,
-            "longitude": 199,
-          }
-        }
-      />
-      <Marker
-        coordinate={
-          Object {
-            "availableBikes": 1,
-            "availableDocks": 10,
             "latitude": 50,
-            "longitude": 60,
-            "stationName": "station1",
+            "longitude": 50,
           }
         }
-        description="1 bikes available, 10 docks available"
-        onCalloutPress={[Function]}
         onPress={[Function]}
-        title="station1"
+        title="Your location"
       >
         <View
           style={
             Object {
-              "backgroundColor": "red",
-              "borderRadius": 10,
-              "height": 15,
-              "width": 15,
+              "backgroundColor": "dodgerblue",
+              "borderColor": "white",
+              "borderRadius": 50,
+              "borderWidth": 1,
+              "height": 20,
+              "width": 20,
             }
           }
         />
       </Marker>
+      <View>
+        <Marker
+          coordinate={
+            Object {
+              "latitude": 199,
+              "longitude": 199,
+            }
+          }
+        />
+        <View>
+          <Marker
+            coordinate={
+              Object {
+                "availableBikes": 1,
+                "availableDocks": 10,
+                "latitude": 50,
+                "longitude": 60,
+                "stationName": "station1",
+              }
+            }
+            description="1 bikes available, 10 docks available"
+            onCalloutPress={[Function]}
+            onPress={[Function]}
+            title="station1"
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "red",
+                  "borderRadius": 10,
+                  "height": 15,
+                  "width": 15,
+                }
+              }
+            />
+          </Marker>
+        </View>
+      </View>
     </View>
   </MapView>
 </View>

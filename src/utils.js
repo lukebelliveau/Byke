@@ -35,6 +35,12 @@ const centerRegionOnUser = location => ({
   longitudeDelta: 0.01,
 });
 
+const getSubarrayByIndices = (array, indices) => {
+  const toReturn = indices.map(index => array[index]);
+
+  return toReturn;
+};
+
 const displayNavigationAlert = (
   currentLocation,
   stationName,
@@ -86,4 +92,5 @@ export default {
   findClosestStation,
   openDirections,
   displayNavigationAlert,
+  getSubarrayByIndices,
 };

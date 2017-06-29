@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { Keyboard } from 'react-native';
 
-import StationMarker from '../../src/components/Map/StationMarker';
+import StationMarker from '../../src/components/Map/subcomponents/StationMarker';
 import utils from '../../src/utils';
 
 const coordinate = { latitude: 50, longitude: 50 };
