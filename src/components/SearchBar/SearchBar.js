@@ -42,10 +42,12 @@ const SearchBar = ({
     />
   </View>;
 
+const primaryColor = 'dodgerblue';
+const secondaryColor = '#1b81e5';
 const styles = StyleSheet.create({
   button: {
     flex: Platform.OS === 'ios' ? 1 : 0,
-    backgroundColor: '#1b81e5',
+    backgroundColor: secondaryColor,
     width: 40,
     height: 40,
     borderRadius: 50,
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 20,
     paddingLeft: 10,
-    backgroundColor: 'dodgerblue',
+    backgroundColor: primaryColor,
     alignItems: 'center',
     shadowColor: 'black',
     shadowRadius: 10,
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     maxHeight: Platform.OS === 'ios' ? 25 : 50,
     fontSize: 15,
     width: '75%',
-    backgroundColor: '#1b81e5',
+    backgroundColor: secondaryColor,
     color: 'white',
     borderRadius: 10,
     margin: 20,

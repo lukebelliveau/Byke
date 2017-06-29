@@ -17,6 +17,12 @@ type Place = {
   },
 };
 
+const modes = {
+  overview: 'OVERVIEW',
+  search: 'SEARCH',
+  tripDisplay: 'TRIP_DISPLAY',
+}
+
 const initialState = {
   isLoading: false,
   followingUser: true,
