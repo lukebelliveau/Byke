@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BACK_BUTTON sets mode to overview when mode is search 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 0,
+    "longitude": 0,
+  },
+  "isLoading": false,
+  "mode": "OVERVIEW",
+  "places": Array [],
+  "searchText": "",
+  "stations": Array [],
+  "trip": null,
+}
+`;
+
+exports[`BACK_BUTTON sets mode to searc when mode is tripDisplay 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 0,
+    "longitude": 0,
+  },
+  "isLoading": false,
+  "mode": "SEARCH",
+  "places": Array [],
+  "searchText": "",
+  "stations": Array [],
+  "trip": null,
+}
+`;
+
 exports[`CHANGED SEARCH_TEXT changes searchText in state 1`] = `
 Object {
   "currentLocation": Object {
@@ -10,21 +40,6 @@ Object {
   "mode": "OVERVIEW",
   "places": Array [],
   "searchText": "a query",
-  "stations": Array [],
-  "trip": null,
-}
-`;
-
-exports[`EXIT_SEARCH changes mode to overview 1`] = `
-Object {
-  "currentLocation": Object {
-    "latitude": 0,
-    "longitude": 0,
-  },
-  "isLoading": false,
-  "mode": "OVERVIEW",
-  "places": Array [],
-  "searchText": "",
   "stations": Array [],
   "trip": null,
 }
@@ -962,37 +977,7 @@ Object {
 }
 `;
 
-exports[`trip EXIT_TRIP changes mode to searchResults 1`] = `
-Object {
-  "currentLocation": Object {
-    "latitude": 0,
-    "longitude": 0,
-  },
-  "isLoading": false,
-  "mode": "SEARCH",
-  "places": Array [],
-  "searchText": "",
-  "stations": Array [],
-  "trip": null,
-}
-`;
-
-exports[`trip EXIT_TRIP mode to searchResults 1`] = `
-Object {
-  "currentLocation": Object {
-    "latitude": 0,
-    "longitude": 0,
-  },
-  "isLoading": false,
-  "mode": "SEARCH",
-  "places": Array [],
-  "searchText": "",
-  "stations": Array [],
-  "trip": null,
-}
-`;
-
-exports[`trip TRIP_SET puts trip data into state 1`] = `
+exports[`TRIP_SET puts trip data into state 1`] = `
 Object {
   "currentLocation": Object {
     "latitude": 50,

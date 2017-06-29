@@ -37,31 +37,47 @@ test('PLACES_FETCHED puts places in state', () => {
   expect(withLocations).toMatchSnapshot();
 });
 
-describe('trip', () => {
-  const trip = { latitude: 100, longitude: 100 };
+const trip = { latitude: 100, longitude: 100 };
 
-  test('TRIP_SET puts trip data into state', () => {
+test('TRIP_SET puts trip data into state', () => {
+  let state = reducer();
+  state = reducer(
+    state,
+    actions.locationUpdated({ latitude: 50, longitude: 50 })
+  );
+  state = reducer(
+    state,
+    actions.stationsFetched([
+      { latitude: 25, longitude: 25 },
+      { latitude: 75, longitude: 75 },
+    ])
+  );
+  const withTrip = reducer(state, actions.tripSet(trip));
+
+  expect(withTrip).toMatchSnapshot();
+});
+
+describe('BACK_BUTTON', () => {
+  it('sets mode to overview when mode is search', () => {
     let state = reducer();
-    state = reducer(
-      state,
-      actions.locationUpdated({ latitude: 50, longitude: 50 })
-    );
-    state = reducer(
-      state,
-      actions.stationsFetched([
-        { latitude: 25, longitude: 25 },
-        { latitude: 75, longitude: 75 },
-      ])
-    );
-    const withTrip = reducer(state, actions.tripSet(trip));
+    state = {
+      ...state,
+      mode: modes.searchResults,
+    };
 
-    expect(withTrip).toMatchSnapshot();
+    state = reducer(state, actions.backButton());
+
+    expect(state).toMatchSnapshot();
   });
 
-  test('EXIT_TRIP changes mode to searchResults', () => {
+  it('sets mode to searc when mode is tripDisplay', () => {
     let state = reducer();
+    state = {
+      ...state,
+      mode: modes.tripDisplay,
+    };
 
-    state = reducer(state, actions.exitTrip());
+    state = reducer(state, actions.backButton());
 
     expect(state).toMatchSnapshot();
   });
@@ -103,19 +119,9 @@ test('CHANGED SEARCH_TEXT changes searchText in state', () => {
   expect(withSearchText).toMatchSnapshot();
 });
 
-test('EXIT_SEARCH changes mode to overview', () => {
-  const state = reducer();
-  const searchState = reducer(state, actions.placesFetched([]));
-
-  const stateAfterExiting = reducer(searchState, actions.exitSearch());
-
-  expect(stateAfterExiting).toMatchSnapshot();
-});
-
 it('handles improper actions', () => {
   const initialState = reducer();
 
   const stateAfterAction = reducer(initialState, 'an invalid action');
-
   expect(initialState).toEqual(stateAfterAction);
 });

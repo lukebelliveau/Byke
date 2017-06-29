@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { modes } from '../../redux/reducers';
+
 type PropTypes = {
   searchText: string,
   changeSearchText: string => void,
@@ -20,11 +22,12 @@ const SearchBar = ({
   changeSearchText,
   searchPlaces,
   trip,
-  exitTrip,
+  backButton,
+  mode,
 }: PropTypes) =>
   <View style={[styles.container]}>
-    {trip
-      ? <TouchableOpacity onPress={exitTrip} style={styles.button}>
+    {mode !== modes.overview
+      ? <TouchableOpacity onPress={backButton} style={styles.button}>
           <Text style={styles.arrow}>{'<'}</Text>
         </TouchableOpacity>
       : null}

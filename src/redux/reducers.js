@@ -87,17 +87,17 @@ const reducer = (
       return update(state, {
         currentLocation: { $set: action.payload },
       });
-    case types.EXIT_TRIP:
-      return update(state, {
-        mode: { $set: modes.searchResults },
-      });
     case types.CHANGE_SEARCH_TEXT:
       return update(state, {
         searchText: { $set: action.payload },
       });
-    case types.EXIT_SEARCH:
+    case types.BACK_BUTTON:
       return update(state, {
-        mode: { $set: modes.overview },
+        mode: {
+          $set: state.mode === modes.tripDisplay
+            ? modes.searchResults
+            : modes.overview,
+        },
       });
     default:
       return state;

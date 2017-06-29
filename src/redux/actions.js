@@ -9,17 +9,12 @@ export const types = {
   LOCATION_UPDATED: 'LOCATION_UPDATED',
   SEARCH_PLACES: 'SEARCH_PLACES',
   CHANGE_SEARCH_TEXT: 'CHANGE_SEARCH_TEXT',
-  EXIT_TRIP: 'EXIT_TRIP',
-  EXIT_SEARCH: 'EXIT_SEARCH',
+  BACK_BUTTON: 'BACK_BUTTON',
 };
 
 const searchPlaces = (searchQuery: string) => ({
   type: types.SEARCH_PLACES,
   payload: searchQuery,
-});
-
-const exitTrip = () => ({
-  type: types.EXIT_TRIP,
 });
 
 const loadingStarted = () => ({
@@ -55,8 +50,8 @@ const changeSearchText = (text: string) => ({
   payload: text,
 });
 
-const exitSearch = () => ({
-  type: types.EXIT_SEARCH,
+const backButton = () => ({
+  type: types.BACK_BUTTON,
 });
 
 export default {
@@ -68,6 +63,5 @@ export default {
   locationUpdated,
   searchPlaces,
   changeSearchText,
-  exitTrip,
-  exitSearch,
+  backButton,
 };

@@ -20,14 +20,15 @@ const mapDispatchToProps = dispatch => ({
   changeSearchText: text => {
     dispatch(actions.changeSearchText(text));
   },
-  exitTrip: () => {
-    dispatch(actions.exitTrip());
+  backButton: () => {
+    dispatch(actions.backButton());
   },
 });
 
 const mapStateToProps = state => ({
   searchText: state.searchText,
   trip: state.trip,
+  mode: state.mode,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

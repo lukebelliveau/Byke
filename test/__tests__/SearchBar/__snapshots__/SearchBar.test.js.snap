@@ -1,5 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`contains a back button when in search mode 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "dodgerblue",
+        "elevation": 10,
+        "flex": 1,
+        "flexDirection": "row",
+        "paddingLeft": 10,
+        "paddingTop": 20,
+        "shadowColor": "black",
+        "shadowOpacity": 100,
+        "shadowRadius": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1b81e5",
+        "borderRadius": 50,
+        "display": "flex",
+        "flex": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      &lt;
+    </Text>
+  </View>
+  <TextInput
+    onChangeText={undefined}
+    onSubmitEditing={[Function]}
+    placeholder="Where are you going?"
+    placeholderTextColor="lightgray"
+    returnKeyType="go"
+    selectionColor="darkgrey"
+    style={
+      Object {
+        "backgroundColor": "#1b81e5",
+        "borderRadius": 10,
+        "color": "white",
+        "flex": 6,
+        "fontSize": 15,
+        "margin": 20,
+        "maxHeight": 25,
+        "padding": 5,
+        "paddingLeft": 10,
+        "width": "75%",
+      }
+    }
+    underlineColorAndroid="transparent"
+    value="DisneyWorld"
+  />
+</View>
+`;
+
 exports[`contains a back button when in trip mode 1`] = `
 <View
   style={
@@ -91,7 +182,7 @@ exports[`contains a back button when in trip mode 1`] = `
 </View>
 `;
 
-exports[`does not contain a back button when not in trip mode 1`] = `
+exports[`does not contain a back button when in overview mode 1`] = `
 <View
   style={
     Array [
