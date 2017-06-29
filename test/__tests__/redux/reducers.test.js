@@ -58,7 +58,7 @@ describe('trip', () => {
     expect(withTrip).toMatchSnapshot();
   });
 
-  test('EXIT_TRIP mode to searchResults', () => {
+  test('EXIT_TRIP changes mode to searchResults', () => {
     let state = reducer();
 
     state = reducer(state, actions.exitTrip());
@@ -101,6 +101,15 @@ test('CHANGED SEARCH_TEXT changes searchText in state', () => {
   const withSearchText = reducer(state, actions.changeSearchText(text));
 
   expect(withSearchText).toMatchSnapshot();
+});
+
+test('EXIT_SEARCH changes mode to overview', () => {
+  const state = reducer();
+  const searchState = reducer(state, actions.placesFetched([]));
+
+  const stateAfterExiting = reducer(searchState, actions.exitSearch());
+
+  expect(stateAfterExiting).toMatchSnapshot();
 });
 
 it('handles improper actions', () => {

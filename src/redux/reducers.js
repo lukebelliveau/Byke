@@ -95,6 +95,10 @@ const reducer = (
       return update(state, {
         searchText: { $set: action.payload },
       });
+    case types.EXIT_SEARCH:
+      return update(state, {
+        mode: { $set: modes.overview },
+      });
     default:
       return state;
   }

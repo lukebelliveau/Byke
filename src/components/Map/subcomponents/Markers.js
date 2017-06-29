@@ -25,7 +25,7 @@ const Markers = ({ mode, trip, stations, currentLocation }) => {
       );
   }
 
-  return(
+  return (
     <View>
       <CurrentLocationMarker coordinate={currentLocation} />
       {stationMarkers}

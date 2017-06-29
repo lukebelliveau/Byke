@@ -10,6 +10,7 @@ export const types = {
   SEARCH_PLACES: 'SEARCH_PLACES',
   CHANGE_SEARCH_TEXT: 'CHANGE_SEARCH_TEXT',
   EXIT_TRIP: 'EXIT_TRIP',
+  EXIT_SEARCH: 'EXIT_SEARCH',
 };
 
 const searchPlaces = (searchQuery: string) => ({
@@ -54,6 +55,10 @@ const changeSearchText = (text: string) => ({
   payload: text,
 });
 
+const exitSearch = () => ({
+  type: types.EXIT_SEARCH,
+});
+
 export default {
   loadingStarted,
   loadingFinished,
@@ -64,4 +69,5 @@ export default {
   searchPlaces,
   changeSearchText,
   exitTrip,
+  exitSearch,
 };

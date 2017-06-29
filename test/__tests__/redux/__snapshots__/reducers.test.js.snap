@@ -15,6 +15,21 @@ Object {
 }
 `;
 
+exports[`EXIT_SEARCH changes mode to overview 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 0,
+    "longitude": 0,
+  },
+  "isLoading": false,
+  "mode": "OVERVIEW",
+  "places": Array [],
+  "searchText": "",
+  "stations": Array [],
+  "trip": null,
+}
+`;
+
 exports[`LOADING_FINISHED sets loading to false 1`] = `
 Object {
   "currentLocation": Object {
@@ -943,6 +958,21 @@ Object {
     "station1",
     "station2",
   ],
+  "trip": null,
+}
+`;
+
+exports[`trip EXIT_TRIP changes mode to searchResults 1`] = `
+Object {
+  "currentLocation": Object {
+    "latitude": 0,
+    "longitude": 0,
+  },
+  "isLoading": false,
+  "mode": "SEARCH",
+  "places": Array [],
+  "searchText": "",
+  "stations": Array [],
   "trip": null,
 }
 `;
