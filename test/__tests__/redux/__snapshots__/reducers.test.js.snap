@@ -8,6 +8,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": false,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -29,6 +30,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": false,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -50,6 +52,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": true,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -71,6 +74,7 @@ Object {
   },
   "followingUser": false,
   "isLoading": false,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -92,6 +96,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": false,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 10,
@@ -113,6 +118,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": false,
+  "mode": "SEARCH",
   "places": Array [
     Object {
       "geometry": Object {
@@ -973,6 +979,7 @@ Object {
   },
   "followingUser": true,
   "isLoading": false,
+  "mode": "OVERVIEW",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -997,6 +1004,7 @@ Object {
   },
   "followingUser": false,
   "isLoading": false,
+  "mode": "SEARCH",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -1021,6 +1029,7 @@ Object {
   },
   "followingUser": false,
   "isLoading": false,
+  "mode": "TRIP_DISPLAY",
   "places": Array [],
   "region": Object {
     "latitude": 75,

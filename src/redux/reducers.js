@@ -19,7 +19,7 @@ type Place = {
 
 const modes = {
   overview: 'OVERVIEW',
-  search: 'SEARCH',
+  searchResults: 'SEARCH',
   tripDisplay: 'TRIP_DISPLAY',
 }
 
@@ -31,6 +31,7 @@ const initialState = {
     longitude: 0,
   },
   stations: [],
+  mode: modes.overview,
   trip: null,
   places: [],
   region: {
@@ -69,6 +70,7 @@ const reducer = (
         places: { $set: action.payload },
         trip: { $set: null },
         isLoading: { $set: false },
+        mode: { $set: modes.searchResults }
       });
     case types.TRIP_SET:
       const region = utils.computeRegionThatFitsAllPoints([
@@ -81,6 +83,7 @@ const reducer = (
             destination: action.payload,
           },
         },
+        mode: { $set: modes.tripDisplay },
         stations: {
           $set: [
             utils.findClosestStation(state.region, state.stations),
@@ -109,6 +112,7 @@ const reducer = (
     case types.EXIT_TRIP:
       return update(state, {
         trip: { $set: null },
+        mode: { $set: modes.searchResults },
         region: {
           latitude: { $set: state.currentLocation.latitude },
           longitude: { $set: state.currentLocation.longitude },
