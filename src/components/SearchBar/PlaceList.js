@@ -1,5 +1,8 @@
 // @flow
 import React from 'react';
+
+import { modes } from '../../redux/reducers';
+
 import {
   StyleSheet,
   View,
@@ -14,7 +17,9 @@ type Props = {
   trip: Trip,
   tripSet: Location => void,
   places: Array<Place>,
+  mode: string,
 };
+
 class PlaceList extends React.Component {
   constructor(props: Props) {
     super(props);
@@ -22,9 +27,8 @@ class PlaceList extends React.Component {
   }
 
   render() {
-    return this.props.trip
-      ? null
-      : <View
+    return this.props.mode === modes.searchResults
+      ? <View
           style={styles.container}
           pointerEvents={this.props.places.length > 0 ? 'auto' : 'none'}
         >
@@ -38,7 +42,8 @@ class PlaceList extends React.Component {
               />
             )}
           </ScrollView>
-        </View>;
+        </View>
+      : null;
   }
 }
 

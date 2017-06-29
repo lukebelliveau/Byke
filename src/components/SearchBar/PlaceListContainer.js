@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   places: state.places,
   trip: state.trip,
+  mode: state.mode,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceList);

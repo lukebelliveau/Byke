@@ -17,11 +17,11 @@ type Place = {
   },
 };
 
-const modes = {
+export const modes = {
   overview: 'OVERVIEW',
   searchResults: 'SEARCH',
   tripDisplay: 'TRIP_DISPLAY',
-}
+};
 
 const initialState = {
   isLoading: false,
@@ -70,7 +70,7 @@ const reducer = (
         places: { $set: action.payload },
         trip: { $set: null },
         isLoading: { $set: false },
-        mode: { $set: modes.searchResults }
+        mode: { $set: modes.searchResults },
       });
     case types.TRIP_SET:
       const region = utils.computeRegionThatFitsAllPoints([
