@@ -1,6 +1,7 @@
 import reducer from '../../../src/redux/reducers';
 import actions from '../../../src/redux/actions';
 import testPlaces from '../../testLocations';
+import { modes } from '../../../src/redux/reducers';
 
 test('LOADING_STARTED sets loading to true', () => {
   const state = reducer();
@@ -22,7 +23,6 @@ test('STATIONS_FETCHED puts stations in state', () => {
   const stations = ['station1', 'station2'];
   const state = reducer();
 
-  const action = actions.stationsFetched(stations);
   const withStations = reducer(state, actions.stationsFetched(stations));
 
   expect(withStations).toMatchSnapshot();
@@ -58,9 +58,8 @@ describe('trip', () => {
     expect(withTrip).toMatchSnapshot();
   });
 
-  test('EXIT_TRIP sets trip state to null and region to center on user', () => {
+  test('EXIT_TRIP mode to searchResults', () => {
     let state = reducer();
-    state = reducer(state, actions.tripSet(trip));
 
     state = reducer(state, actions.exitTrip());
 
@@ -81,7 +80,7 @@ test('LOCATION_UPDATED does not update region if not following user', () => {
   let state = reducer();
   state = {
     ...state,
-    followingUser: false,
+    mode: modes.tripDisplay,
   };
 
   state = reducer(

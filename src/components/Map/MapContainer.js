@@ -23,6 +23,7 @@ const mapStateToProps = state => ({
   trip: state.trip,
   currentLocation: state.currentLocation,
   region: state.region,
+  mode: state.mode,
 });
 
 const Map = connect(mapStateToProps, mapDispatchToProps)(MapComponent);

@@ -6,6 +6,7 @@ import MapView from 'react-native-maps';
 import StationMarker from './StationMarker';
 import CurrentLocationMarker from './CurrentLocationMarker';
 import api from '../../api';
+import { modes } from '../../redux/reducers';
 import { Region, Location, Station, Trip } from '../../Types';
 
 type Props = {
@@ -70,6 +71,7 @@ class Map extends Component {
     const trip = this.props.trip;
     const region = this.props.region;
     const stations = this.props.stations;
+    const mode = this.props.mode;
     const currentLocation = this.props.currentLocation;
 
     return (
@@ -82,26 +84,43 @@ class Map extends Component {
               this.map = ref;
             }}
           >
-            {trip
-              ? <View>
-                  <CurrentLocationMarker coordinate={currentLocation} />
-                  <MapView.Marker coordinate={trip.destination} />
-                </View>
-              : <CurrentLocationMarker coordinate={currentLocation} />}
+            <CurrentLocationMarker coordinate={currentLocation} />
 
-            {stations.map((station, index) => {
-              return (
-                <StationMarker
-                  testId={station.stationName}
-                  stationName={station.stationName}
-                  coordinate={station}
-                  currentLocation={currentLocation}
-                  availableBikes={station.availableBikes}
-                  availableDocks={station.availableDocks}
-                  key={index}
-                />
-              );
-            })}
+            {mode === modes.tripDisplay
+              ? <View>
+                  <MapView.Marker coordinate={trip.destination} />
+                  {trip.closeToLocation.map(stationIndex => {
+                    const station = stations[stationIndex];
+                    return (
+                      <StationMarker
+                        testId={station.stationName}
+                        stationName={station.stationName}
+                        coordinate={station}
+                        currentLocation={currentLocation}
+                        availableBikes={station.availableBikes}
+                        availableDocks={station.availableDocks}
+                        key={stationIndex}
+                      />
+                    );
+                  })}
+                </View>
+              : null}
+
+            {mode === modes.overview
+              ? stations.map((station, index) => {
+                  return (
+                    <StationMarker
+                      testId={station.stationName}
+                      stationName={station.stationName}
+                      coordinate={station}
+                      currentLocation={currentLocation}
+                      availableBikes={station.availableBikes}
+                      availableDocks={station.availableDocks}
+                      key={index}
+                    />
+                  );
+                })
+              : null}
           </MapView>
         }
       </View>

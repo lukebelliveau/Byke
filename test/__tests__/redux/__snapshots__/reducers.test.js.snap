@@ -6,7 +6,6 @@ Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": true,
   "isLoading": false,
   "mode": "OVERVIEW",
   "places": Array [],
@@ -28,7 +27,6 @@ Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": true,
   "isLoading": false,
   "mode": "OVERVIEW",
   "places": Array [],
@@ -50,7 +48,6 @@ Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": true,
   "isLoading": true,
   "mode": "OVERVIEW",
   "places": Array [],
@@ -72,9 +69,8 @@ Object {
     "latitude": 97,
     "longitude": 98,
   },
-  "followingUser": false,
   "isLoading": false,
-  "mode": "OVERVIEW",
+  "mode": "TRIP_DISPLAY",
   "places": Array [],
   "region": Object {
     "latitude": 0,
@@ -94,7 +90,6 @@ Object {
     "latitude": 10,
     "longitude": 10,
   },
-  "followingUser": true,
   "isLoading": false,
   "mode": "OVERVIEW",
   "places": Array [],
@@ -116,7 +111,6 @@ Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": true,
   "isLoading": false,
   "mode": "SEARCH",
   "places": Array [
@@ -977,7 +971,6 @@ Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": true,
   "isLoading": false,
   "mode": "OVERVIEW",
   "places": Array [],
@@ -996,27 +989,23 @@ Object {
 }
 `;
 
-exports[`trip EXIT_TRIP sets trip state to null and region to center on user 1`] = `
+exports[`trip EXIT_TRIP mode to searchResults 1`] = `
 Object {
   "currentLocation": Object {
     "latitude": 0,
     "longitude": 0,
   },
-  "followingUser": false,
   "isLoading": false,
   "mode": "SEARCH",
   "places": Array [],
   "region": Object {
     "latitude": 0,
-    "latitudeDelta": 100.005,
+    "latitudeDelta": 0.01,
     "longitude": 0,
-    "longitudeDelta": 100.005,
+    "longitudeDelta": 0.01,
   },
   "searchText": "",
-  "stations": Array [
-    null,
-    null,
-  ],
+  "stations": Array [],
   "trip": null,
 }
 `;
@@ -1027,7 +1016,6 @@ Object {
     "latitude": 50,
     "longitude": 50,
   },
-  "followingUser": false,
   "isLoading": false,
   "mode": "TRIP_DISPLAY",
   "places": Array [],
@@ -1049,6 +1037,12 @@ Object {
     },
   ],
   "trip": Object {
+    "closeToDestination": Array [
+      1,
+    ],
+    "closeToLocation": Array [
+      0,
+    ],
     "destination": Object {
       "latitude": 100,
       "longitude": 100,

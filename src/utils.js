@@ -48,29 +48,23 @@ const displayNavigationAlert = (
   );
 };
 
-const findClosestStation = (
-  currentLocation: Location,
-  stations: Array<Station>
-) => {
-  let closestFound = {
-    station: null,
-    distance: Number.POSITIVE_INFINITY,
-  };
-
-  stations.forEach(station => {
-    const lateralDistance = Math.abs(
-      currentLocation.latitude - station.latitude
-    );
-    const longitudalDistance = Math.abs(
-      currentLocation.longitude - station.longitude
-    );
-    const distance = lateralDistance + longitudalDistance / 2;
-
-    if (distance < closestFound.distance)
-      closestFound = { station: station, distance: distance };
+const findClosestStation = (location: Location, stations: Array<Station>) => {
+  const indices = new Array(stations.length);
+  for (let i = 0; i < stations.length; i++) indices[i] = i;
+  indices.sort((a, b) => {
+    const distanceToA = computeDistance(location, stations[a]);
+    const distanceToB = computeDistance(location, stations[b]);
+    return distanceToA < distanceToB ? -1 : distanceToA > distanceToB ? 1 : 0;
   });
 
-  return closestFound.station;
+  return indices;
+};
+
+const computeDistance = (location, station) => {
+  const lateralDistance = Math.abs(location.latitude - station.latitude);
+  const longitudalDistance = Math.abs(location.longitude - station.longitude);
+
+  return lateralDistance + longitudalDistance / 2;
 };
 
 const openDirections = (origin, destination) => {

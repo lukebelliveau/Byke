@@ -25,7 +25,6 @@ export const modes = {
 
 const initialState = {
   isLoading: false,
-  followingUser: true,
   currentLocation: {
     latitude: 0,
     longitude: 0,
@@ -81,27 +80,29 @@ const reducer = (
         trip: {
           $set: {
             destination: action.payload,
+            closeToLocation: [
+              utils.findClosestStation(
+                state.currentLocation,
+                state.stations
+              )[0],
+            ],
+            closeToDestination: [
+              utils.findClosestStation(action.payload, state.stations)[0],
+            ],
           },
         },
         mode: { $set: modes.tripDisplay },
-        stations: {
-          $set: [
-            utils.findClosestStation(state.region, state.stations),
-            utils.findClosestStation(action.payload, state.stations),
-          ],
-        },
         region: { $set: region },
-        followingUser: { $set: false },
       });
     case types.LOCATION_UPDATED:
       return update(state, {
         currentLocation: { $set: action.payload },
         region: {
           $set: {
-            latitude: state.followingUser === true
+            latitude: state.mode === modes.overview
               ? action.payload.latitude
               : state.region.latitude,
-            longitude: state.followingUser === true
+            longitude: state.mode === modes.overview
               ? action.payload.longitude
               : state.region.latitude,
             latitudeDelta: state.region.latitudeDelta,
@@ -111,12 +112,7 @@ const reducer = (
       });
     case types.EXIT_TRIP:
       return update(state, {
-        trip: { $set: null },
         mode: { $set: modes.searchResults },
-        region: {
-          latitude: { $set: state.currentLocation.latitude },
-          longitude: { $set: state.currentLocation.longitude },
-        },
       });
     case types.CHANGE_SEARCH_TEXT:
       return update(state, {

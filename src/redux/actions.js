@@ -39,9 +39,9 @@ const placesFetched = (places: Array<Place>) => ({
   payload: places,
 });
 
-const tripSet = (trip: Location) => ({
+const tripSet = (destination: Location) => ({
   type: types.TRIP_SET,
-  payload: trip,
+  payload: destination,
 });
 
 const locationUpdated = (location: Location) => ({
