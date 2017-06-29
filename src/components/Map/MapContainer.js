@@ -22,7 +22,6 @@ const mapStateToProps = state => ({
   stations: state.stations,
   trip: state.trip,
   currentLocation: state.currentLocation,
-  region: state.region,
   mode: state.mode,
 });
 

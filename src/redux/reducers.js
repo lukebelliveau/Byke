@@ -3,7 +3,7 @@ import update from 'immutability-helper';
 
 import { types } from './actions';
 import utils from '../utils';
-import { Region, Location, Trip, State } from '../Types';
+import { Location, Trip, State } from '../Types';
 
 type Place = {
   id: number,
@@ -33,12 +33,6 @@ const initialState = {
   mode: modes.overview,
   trip: null,
   places: [],
-  region: {
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  },
   searchText: '',
 };
 
@@ -72,10 +66,6 @@ const reducer = (
         mode: { $set: modes.searchResults },
       });
     case types.TRIP_SET:
-      const region = utils.computeRegionThatFitsAllPoints([
-        action.payload,
-        state.region,
-      ]);
       return update(state, {
         trip: {
           $set: {
@@ -92,23 +82,10 @@ const reducer = (
           },
         },
         mode: { $set: modes.tripDisplay },
-        region: { $set: region },
       });
     case types.LOCATION_UPDATED:
       return update(state, {
         currentLocation: { $set: action.payload },
-        region: {
-          $set: {
-            latitude: state.mode === modes.overview
-              ? action.payload.latitude
-              : state.region.latitude,
-            longitude: state.mode === modes.overview
-              ? action.payload.longitude
-              : state.region.latitude,
-            latitudeDelta: state.region.latitudeDelta,
-            longitudeDelta: state.region.longitudeDelta,
-          },
-        },
       });
     case types.EXIT_TRIP:
       return update(state, {

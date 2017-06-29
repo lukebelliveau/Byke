@@ -23,6 +23,7 @@ export type Trip = {
 };
 
 export type State = {
+  currentLocation: Location,
   isLoading: boolean,
   stations: Array<Object>,
   trip: ?Trip,

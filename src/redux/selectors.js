@@ -1,8 +1,8 @@
 // @flow
 import { State } from '../Types';
 const getCoordinates = (state: State) => ({
-  latitude: state.region.latitude,
-  longitude: state.region.longitude,
+  latitude: state.currentLocation.latitude,
+  longitude: state.currentLocation.longitude,
 });
 
 export default {

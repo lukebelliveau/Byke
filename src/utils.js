@@ -28,6 +28,13 @@ const computeRegionThatFitsAllPoints = (landmarks: Location) => {
   };
 };
 
+const centerRegionOnUser = location => ({
+  latitude: location.latitude,
+  longitude: location.longitude,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+});
+
 const displayNavigationAlert = (
   currentLocation,
   stationName,
@@ -75,6 +82,7 @@ const openDirections = (origin, destination) => {
 
 export default {
   computeRegionThatFitsAllPoints,
+  centerRegionOnUser,
   findClosestStation,
   openDirections,
   displayNavigationAlert,

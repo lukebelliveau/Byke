@@ -7,16 +7,17 @@ import StationMarker from './StationMarker';
 import CurrentLocationMarker from './CurrentLocationMarker';
 import api from '../../api';
 import { modes } from '../../redux/reducers';
-import { Region, Location, Station, Trip } from '../../Types';
+import { Location, Station, Trip } from '../../Types';
+import utils from '../../utils';
 
 type Props = {
   stations: Array<Station>,
-  region: Region,
   trip: Trip,
   loadingStarted: () => void,
   loadingFinished: () => void,
   locationUpdated: Location => void,
   stationsFetched: (Array<Station>) => void,
+  currentLocation: Location,
 };
 
 const positionError = error => {
@@ -52,7 +53,11 @@ class Map extends Component {
   }
 
   componentDidUpdate() {
-    this.map.animateToRegion(this.props.region);
+    this.map.animateToRegion(
+      this.props.mode === modes.tripDisplay
+        ? utils.computeRegionThatFitsAllPoints([this.props.currentLocation, this.props.trip.destination])
+        : utils.centerRegionOnUser(this.props.currentLocation)
+    );
   }
 
   fetchStationInfo = () => {
@@ -69,7 +74,6 @@ class Map extends Component {
 
   render() {
     const trip = this.props.trip;
-    const region = this.props.region;
     const stations = this.props.stations;
     const mode = this.props.mode;
     const currentLocation = this.props.currentLocation;
